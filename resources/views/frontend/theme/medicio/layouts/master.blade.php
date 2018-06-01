@@ -8,7 +8,7 @@
   <meta name="author" content="Perantau Indonesia">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>Perantau Indonesia</title>
+  <title>{{ ucfirst($setting->name) }}</title>
 
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('frontend/medicio/css/medicio_app.css') }}">
