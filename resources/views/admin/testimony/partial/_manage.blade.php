@@ -7,12 +7,21 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				@foreach($users as $user)
-					<td class="text-center">1</td>
-					<td class="text-center">Bobi</td>
+			@if(count($users) > 0)
+				@foreach($users as $key => $user)
+					<tr>
+						<td class="text-center">{{ $key + 1 }}</td>
+						<td class="text-center">
+							<a href="{{ route('testimony.create', ['user' => $user->id]) }}">
+								{{ $user->name }}
+							</a>
+						</td>
+					</tr>
 				@endforeach
-			</tr>
+			@endif
 		</tbody>
 	</table>
+</div>
+<div class="text-center">
+	{{ $users->links() }}
 </div>

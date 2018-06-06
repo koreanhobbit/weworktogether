@@ -1,5 +1,83 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(22);
+
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports) {
+
 /*global jQuery:false */
-(function($) {
+(function ($) {
 
   var wow = new WOW({
     boxClass: 'wow', // animated element css class (default is wow)
@@ -10,7 +88,7 @@
   wow.init();
 
   //jQuery to collapse the navbar on scroll
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(".navbar").offset().top > 50) {
       $(".navbar-fixed-top").addClass("top-nav-collapse");
       // $(".top-area").addClass("top-padding");
@@ -18,7 +96,6 @@
       $(".navbar-brand").addClass("reduce");
 
       $(".navbar-custom ul.nav ul.dropdown-menu").css("margin-top", "11px");
-
     } else {
       $(".navbar-fixed-top").removeClass("top-nav-collapse");
       // $(".top-area").removeClass("top-padding");
@@ -26,24 +103,23 @@
       $(".navbar-brand").removeClass("reduce");
 
       $(".navbar-custom ul.nav ul.dropdown-menu").css("margin-top", "16px");
-
     }
   });
 
-	var navMain = $(".navbar-collapse"); 
-	navMain.on("click", "a:not([data-toggle])", null, function () {
-	   navMain.collapse('hide');
-	});
+  var navMain = $(".navbar-collapse");
+  navMain.on("click", "a:not([data-toggle])", null, function () {
+    navMain.collapse('hide');
+  });
 
   //scroll to top
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       $('.scrollup').fadeIn();
     } else {
       $('.scrollup').fadeOut();
     }
   });
-  $('.scrollup').click(function() {
+  $('.scrollup').click(function () {
     $("html, body").animate({
       scrollTop: 0
     }, 1000);
@@ -51,8 +127,8 @@
   });
 
   //jQuery for page scrolling feature - requires jQuery Easing plugin
-  $(function() {
-    $('.navbar-nav li a').bind('click', function(event) {
+  $(function () {
+    $('.navbar-nav li a').bind('click', function (event) {
       var $anchor = $(this);
       var nav = $($anchor.attr('href'));
       if (nav.length) {
@@ -63,7 +139,7 @@
         event.preventDefault();
       }
     });
-    $('.page-scroll a').bind('click', function(event) {
+    $('.page-scroll a').bind('click', function (event) {
       var $anchor = $(this);
       $('html, body').stop().animate({
         scrollTop: $($anchor.attr('href')).offset().top
@@ -72,16 +148,35 @@
     });
   });
 
-  //owl carousel
-  $('#owl-works').owlCarousel({
-    items: 4,
-    itemsDesktop: [1199, 5],
-    itemsDesktopSmall: [980, 5],
-    itemsTablet: [768, 5],
-    itemsTabletSmall: [550, 2],
-    itemsMobile: [480, 2],
+  $('.testimony').slick({
+    autoplay: true,
+    infinite: true,
+    dots: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    }, {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    }, {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
   });
-
 
   // (function($, window, document, undefined) {
 
@@ -181,9 +276,12 @@
 
   // })(jQuery, window, document);
 
-
 })(jQuery);
-$(window).on('load', function() {
+$(window).on('load', function () {
   $(".loader").delay(100).fadeOut();
   $("#page-loader").delay(100).fadeOut("fast");
 });
+
+/***/ })
+
+/******/ });

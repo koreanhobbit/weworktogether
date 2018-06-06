@@ -12,8 +12,8 @@ class ServicePoint extends Seeder
     public function run()
     {
         DB::table('service_points')->insert([
-        	'description' => 'Guide Berpengalaman',
-        	'slug' => 'guideberpengalaman',
+        	'description' => 'Experience Guides',
+        	'slug' => 'experienceguides',
         	'show' => '1',
         	'service_id' => '1',
         	'created_at' => new DateTime(),
@@ -21,8 +21,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Guide Fasih Bahasa Lokal',
-        	'slug' => 'guidefasih',
+        	'description' => 'Fluent in Local Languages',
+        	'slug' => 'fluent',
         	'show' => '1',
         	'service_id' => '1',
         	'created_at' => new DateTime(),
@@ -30,8 +30,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Informasi Wisata',
-        	'slug' => 'informasiwisata',
+        	'description' => 'Tourist Information',
+        	'slug' => 'touristinformation',
         	'show' => '1',
         	'service_id' => '1',
         	'created_at' => new DateTime(),
@@ -39,8 +39,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Jam Fleksibel',
-        	'slug' => 'jamfleksibel',
+        	'description' => 'Flexible Hours',
+        	'slug' => 'flexiblehours',
         	'show' => '1',
         	'service_id' => '1',
         	'created_at' => new DateTime(),
@@ -48,8 +48,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Guide Berpengalaman',
-        	'slug' => 'guideberpengalaman',
+        	'description' => 'Experience Guides',
+        	'slug' => 'experienceguides2',
         	'show' => '1',
         	'service_id' => '2',
         	'created_at' => new DateTime(),
@@ -57,8 +57,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Guide Fasih Bahasa Lokal',
-        	'slug' => 'guidefasihbahasalokal',
+        	'description' => 'Fluent in Local Languages',
+        	'slug' => 'fluent2',
         	'show' => '1',
         	'service_id' => '2',
         	'created_at' => new DateTime(),
@@ -66,8 +66,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Info Pendaftaran',
-        	'slug' => 'infopendaftaran',
+        	'description' => 'Registration Information',
+        	'slug' => 'registerinformation',
         	'show' => '1',
         	'service_id' => '2',
         	'created_at' => new DateTime(),
@@ -75,8 +75,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Formulir Pendaftaran Kampus',
-        	'slug' => 'formulirpendaftarankampus',
+        	'description' => 'Registration Form',
+        	'slug' => 'registrationform',
         	'show' => '1',
         	'service_id' => '2',
         	'created_at' => new DateTime(),
@@ -84,8 +84,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Info Tempat Tinggal',
-        	'slug' => 'infotempattinggal',
+        	'description' => 'Information of Housing',
+        	'slug' => 'housinginfo',
         	'show' => '1',
         	'service_id' => '2',
         	'created_at' => new DateTime(),
@@ -93,8 +93,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Info Beasiswa',
-        	'slug' => 'infobeasiswa',
+        	'description' => 'Scholarship Information',
+        	'slug' => 'scholarshipinformation',
         	'show' => '1',
         	'service_id' => '2',
         	'created_at' => new DateTime(),
@@ -102,8 +102,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Guide Berpengalaman',
-        	'slug' => 'guideberpengalaman',
+        	'description' => 'Experience Guides',
+            'slug' => 'experienceguides3',
         	'show' => '1',
         	'service_id' => '3',
         	'created_at' => new DateTime(),
@@ -111,8 +111,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Guide Fasih Bahasa Lokal',
-        	'slug' => 'guidefasih',
+        	'description' => 'Fluent in Local Languages',
+            'slug' => 'fluent3',
         	'show' => '1',
         	'service_id' => '3',
         	'created_at' => new DateTime(),
@@ -120,8 +120,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Pendampingan Treatement',
-        	'slug' => 'pendampingantreatment',
+        	'description' => 'Assistency during treatments',
+        	'slug' => 'assistencyduringtreatments',
         	'show' => '1',
         	'service_id' => '3',
         	'created_at' => new DateTime(),
@@ -129,8 +129,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Info Rumah Sakit',
-        	'slug' => 'inforumahsakit',
+        	'description' => 'Hospitals Information',
+        	'slug' => 'hospitalsinformation',
         	'show' => '1',
         	'service_id' => '3',
         	'created_at' => new DateTime(),
@@ -138,8 +138,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Formulir Pendaftaran',
-        	'slug' => 'formulirpendaftaran',
+        	'description' => 'Registration Forms',
+        	'slug' => 'registrationforms',
         	'show' => '1',
         	'service_id' => '3',
         	'created_at' => new DateTime(),
@@ -147,8 +147,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Penerjemah Terlatih',
-        	'slug' => 'penerjemahterlatih',
+        	'description' => 'Sworn Translators',
+        	'slug' => 'sworntranslators',
         	'show' => '1',
         	'service_id' => '4',
         	'created_at' => new DateTime(),
@@ -156,8 +156,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Terjemah Naskah Ilmiah',
-        	'slug' => 'terjemahnaskahilmiah',
+        	'description' => 'Academic paper translation',
+        	'slug' => 'academicpapertranslation',
         	'show' => '1',
         	'service_id' => '4',
         	'created_at' => new DateTime(),
@@ -165,8 +165,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Harga Terjangkau',
-        	'slug' => 'hargaterjangkau',
+        	'description' => 'Affordable Price',
+        	'slug' => 'affordable',
         	'show' => '1',
         	'service_id' => '4',
         	'created_at' => new DateTime(),
@@ -174,8 +174,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Diantar Hingga Hotel',
-        	'slug' => 'diantarhinggahotel',
+        	'description' => 'Sent to Hotel',
+        	'slug' => 'senttohotel',
         	'show' => '1',
         	'service_id' => '5',
         	'created_at' => new DateTime(),
@@ -183,8 +183,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Informasi Moda Transportasi',
-        	'slug' => 'informasimodatransportasi',
+        	'description' => 'Transportation Information',
+        	'slug' => 'transportationinformation',
         	'show' => '1',
         	'service_id' => '5',
         	'created_at' => new DateTime(),
@@ -192,8 +192,8 @@ class ServicePoint extends Seeder
         ]);
 
         DB::table('service_points')->insert([
-        	'description' => 'Informasi Sarana Komunikasi',
-        	'slug' => 'informasisaranakomunikasi',
+        	'description' => 'Communication Facilities',
+        	'slug' => 'communicationfacilities',
         	'show' => '1',
         	'service_id' => '5',
         	'created_at' => new DateTime(),

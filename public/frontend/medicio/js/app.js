@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -12873,17 +12873,938 @@ if (typeof jQuery === 'undefined') {
 /* 10 */,
 /* 11 */,
 /* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(14);
+module.exports = __webpack_require__(17);
 
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
+__webpack_require__(18);
+__webpack_require__(19);
+__webpack_require__(20);
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+/*
+ * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+ *
+ * Uses the built in easing capabilities added In jQuery 1.1
+ * to offer multiple easing options
+ *
+ * TERMS OF USE - EASING EQUATIONS
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright Â© 2001 Robert Penner
+ * All rights reserved.
+ *
+ * TERMS OF USE - jQuery Easing
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright Â© 2008 George McGinley Smith
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ * 
+ * Redistributions of source code must retain the above copyright notice, this list of 
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list 
+ * of conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution.
+ * 
+ * Neither the name of the author nor the names of contributors may be used to endorse 
+ * or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *
+*/
+jQuery.easing.jswing = jQuery.easing.swing;jQuery.extend(jQuery.easing, { def: "easeOutQuad", swing: function swing(e, f, a, h, g) {
+    return jQuery.easing[jQuery.easing.def](e, f, a, h, g);
+  }, easeInQuad: function easeInQuad(e, f, a, h, g) {
+    return h * (f /= g) * f + a;
+  }, easeOutQuad: function easeOutQuad(e, f, a, h, g) {
+    return -h * (f /= g) * (f - 2) + a;
+  }, easeInOutQuad: function easeInOutQuad(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f + a;
+    }return -h / 2 * (--f * (f - 2) - 1) + a;
+  }, easeInCubic: function easeInCubic(e, f, a, h, g) {
+    return h * (f /= g) * f * f + a;
+  }, easeOutCubic: function easeOutCubic(e, f, a, h, g) {
+    return h * ((f = f / g - 1) * f * f + 1) + a;
+  }, easeInOutCubic: function easeInOutCubic(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f * f + a;
+    }return h / 2 * ((f -= 2) * f * f + 2) + a;
+  }, easeInQuart: function easeInQuart(e, f, a, h, g) {
+    return h * (f /= g) * f * f * f + a;
+  }, easeOutQuart: function easeOutQuart(e, f, a, h, g) {
+    return -h * ((f = f / g - 1) * f * f * f - 1) + a;
+  }, easeInOutQuart: function easeInOutQuart(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f * f * f + a;
+    }return -h / 2 * ((f -= 2) * f * f * f - 2) + a;
+  }, easeInQuint: function easeInQuint(e, f, a, h, g) {
+    return h * (f /= g) * f * f * f * f + a;
+  }, easeOutQuint: function easeOutQuint(e, f, a, h, g) {
+    return h * ((f = f / g - 1) * f * f * f * f + 1) + a;
+  }, easeInOutQuint: function easeInOutQuint(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return h / 2 * f * f * f * f * f + a;
+    }return h / 2 * ((f -= 2) * f * f * f * f + 2) + a;
+  }, easeInSine: function easeInSine(e, f, a, h, g) {
+    return -h * Math.cos(f / g * (Math.PI / 2)) + h + a;
+  }, easeOutSine: function easeOutSine(e, f, a, h, g) {
+    return h * Math.sin(f / g * (Math.PI / 2)) + a;
+  }, easeInOutSine: function easeInOutSine(e, f, a, h, g) {
+    return -h / 2 * (Math.cos(Math.PI * f / g) - 1) + a;
+  }, easeInExpo: function easeInExpo(e, f, a, h, g) {
+    return f == 0 ? a : h * Math.pow(2, 10 * (f / g - 1)) + a;
+  }, easeOutExpo: function easeOutExpo(e, f, a, h, g) {
+    return f == g ? a + h : h * (-Math.pow(2, -10 * f / g) + 1) + a;
+  }, easeInOutExpo: function easeInOutExpo(e, f, a, h, g) {
+    if (f == 0) {
+      return a;
+    }if (f == g) {
+      return a + h;
+    }if ((f /= g / 2) < 1) {
+      return h / 2 * Math.pow(2, 10 * (f - 1)) + a;
+    }return h / 2 * (-Math.pow(2, -10 * --f) + 2) + a;
+  }, easeInCirc: function easeInCirc(e, f, a, h, g) {
+    return -h * (Math.sqrt(1 - (f /= g) * f) - 1) + a;
+  }, easeOutCirc: function easeOutCirc(e, f, a, h, g) {
+    return h * Math.sqrt(1 - (f = f / g - 1) * f) + a;
+  }, easeInOutCirc: function easeInOutCirc(e, f, a, h, g) {
+    if ((f /= g / 2) < 1) {
+      return -h / 2 * (Math.sqrt(1 - f * f) - 1) + a;
+    }return h / 2 * (Math.sqrt(1 - (f -= 2) * f) + 1) + a;
+  }, easeInElastic: function easeInElastic(f, h, e, l, k) {
+    var i = 1.70158;var j = 0;var g = l;if (h == 0) {
+      return e;
+    }if ((h /= k) == 1) {
+      return e + l;
+    }if (!j) {
+      j = k * 0.3;
+    }if (g < Math.abs(l)) {
+      g = l;var i = j / 4;
+    } else {
+      var i = j / (2 * Math.PI) * Math.asin(l / g);
+    }return -(g * Math.pow(2, 10 * (h -= 1)) * Math.sin((h * k - i) * (2 * Math.PI) / j)) + e;
+  }, easeOutElastic: function easeOutElastic(f, h, e, l, k) {
+    var i = 1.70158;var j = 0;var g = l;if (h == 0) {
+      return e;
+    }if ((h /= k) == 1) {
+      return e + l;
+    }if (!j) {
+      j = k * 0.3;
+    }if (g < Math.abs(l)) {
+      g = l;var i = j / 4;
+    } else {
+      var i = j / (2 * Math.PI) * Math.asin(l / g);
+    }return g * Math.pow(2, -10 * h) * Math.sin((h * k - i) * (2 * Math.PI) / j) + l + e;
+  }, easeInOutElastic: function easeInOutElastic(f, h, e, l, k) {
+    var i = 1.70158;var j = 0;var g = l;if (h == 0) {
+      return e;
+    }if ((h /= k / 2) == 2) {
+      return e + l;
+    }if (!j) {
+      j = k * (0.3 * 1.5);
+    }if (g < Math.abs(l)) {
+      g = l;var i = j / 4;
+    } else {
+      var i = j / (2 * Math.PI) * Math.asin(l / g);
+    }if (h < 1) {
+      return -0.5 * (g * Math.pow(2, 10 * (h -= 1)) * Math.sin((h * k - i) * (2 * Math.PI) / j)) + e;
+    }return g * Math.pow(2, -10 * (h -= 1)) * Math.sin((h * k - i) * (2 * Math.PI) / j) * 0.5 + l + e;
+  }, easeInBack: function easeInBack(e, f, a, i, h, g) {
+    if (g == undefined) {
+      g = 1.70158;
+    }return i * (f /= h) * f * ((g + 1) * f - g) + a;
+  }, easeOutBack: function easeOutBack(e, f, a, i, h, g) {
+    if (g == undefined) {
+      g = 1.70158;
+    }return i * ((f = f / h - 1) * f * ((g + 1) * f + g) + 1) + a;
+  }, easeInOutBack: function easeInOutBack(e, f, a, i, h, g) {
+    if (g == undefined) {
+      g = 1.70158;
+    }if ((f /= h / 2) < 1) {
+      return i / 2 * (f * f * (((g *= 1.525) + 1) * f - g)) + a;
+    }return i / 2 * ((f -= 2) * f * (((g *= 1.525) + 1) * f + g) + 2) + a;
+  }, easeInBounce: function easeInBounce(e, f, a, h, g) {
+    return h - jQuery.easing.easeOutBounce(e, g - f, 0, h, g) + a;
+  }, easeOutBounce: function easeOutBounce(e, f, a, h, g) {
+    if ((f /= g) < 1 / 2.75) {
+      return h * (7.5625 * f * f) + a;
+    } else {
+      if (f < 2 / 2.75) {
+        return h * (7.5625 * (f -= 1.5 / 2.75) * f + 0.75) + a;
+      } else {
+        if (f < 2.5 / 2.75) {
+          return h * (7.5625 * (f -= 2.25 / 2.75) * f + 0.9375) + a;
+        } else {
+          return h * (7.5625 * (f -= 2.625 / 2.75) * f + 0.984375) + a;
+        }
+      }
+    }
+  }, easeInOutBounce: function easeInOutBounce(e, f, a, h, g) {
+    if (f < g / 2) {
+      return jQuery.easing.easeInBounce(e, f * 2, 0, h, g) * 0.5 + a;
+    }return jQuery.easing.easeOutBounce(e, f * 2 - g, 0, h, g) * 0.5 + h * 0.5 + a;
+  } });
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Copyright (c) 2007-2012 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
+ * Dual licensed under MIT and GPL.
+ * @author Ariel Flesler
+ * @version 1.4.3
+ */
+;(function ($) {
+  var h = $.scrollTo = function (a, b, c) {
+    $(window).scrollTo(a, b, c);
+  };h.defaults = { axis: 'xy', duration: parseFloat($.fn.jquery) >= 1.3 ? 0 : 1, limit: true };h.window = function (a) {
+    return $(window)._scrollable();
+  };$.fn._scrollable = function () {
+    return this.map(function () {
+      var a = this,
+          isWin = !a.nodeName || $.inArray(a.nodeName.toLowerCase(), ['iframe', '#document', 'html', 'body']) != -1;if (!isWin) return a;var b = (a.contentWindow || a).document || a.ownerDocument || a;return (/webkit/i.test(navigator.userAgent) || b.compatMode == 'BackCompat' ? b.body : b.documentElement
+      );
+    });
+  };$.fn.scrollTo = function (e, f, g) {
+    if ((typeof f === 'undefined' ? 'undefined' : _typeof(f)) == 'object') {
+      g = f;f = 0;
+    }if (typeof g == 'function') g = { onAfter: g };if (e == 'max') e = 9e9;g = $.extend({}, h.defaults, g);f = f || g.duration;g.queue = g.queue && g.axis.length > 1;if (g.queue) f /= 2;g.offset = both(g.offset);g.over = both(g.over);return this._scrollable().each(function () {
+      if (!e) return;var d = this,
+          $elem = $(d),
+          targ = e,
+          toff,
+          attr = {},
+          win = $elem.is('html,body');switch (typeof targ === 'undefined' ? 'undefined' : _typeof(targ)) {case 'number':case 'string':
+          if (/^([+-]=)?\d+(\.\d+)?(px|%)?$/.test(targ)) {
+            targ = both(targ);break;
+          }targ = $(targ, this);if (!targ.length) return;case 'object':
+          if (targ.is || targ.style) toff = (targ = $(targ)).offset();}$.each(g.axis.split(''), function (i, a) {
+        var b = a == 'x' ? 'Left' : 'Top',
+            pos = b.toLowerCase(),
+            key = 'scroll' + b,
+            old = d[key],
+            max = h.max(d, a);if (toff) {
+          attr[key] = toff[pos] + (win ? 0 : old - $elem.offset()[pos]);if (g.margin) {
+            attr[key] -= parseInt(targ.css('margin' + b)) || 0;attr[key] -= parseInt(targ.css('border' + b + 'Width')) || 0;
+          }attr[key] += g.offset[pos] || 0;if (g.over[pos]) attr[key] += targ[a == 'x' ? 'width' : 'height']() * g.over[pos];
+        } else {
+          var c = targ[pos];attr[key] = c.slice && c.slice(-1) == '%' ? parseFloat(c) / 100 * max : c;
+        }if (g.limit && /^\d+$/.test(attr[key])) attr[key] = attr[key] <= 0 ? 0 : Math.min(attr[key], max);if (!i && g.queue) {
+          if (old != attr[key]) animate(g.onAfterFirst);delete attr[key];
+        }
+      });animate(g.onAfter);function animate(a) {
+        $elem.animate(attr, f, g.easing, a && function () {
+          a.call(this, e, g);
+        });
+      }
+    }).end();
+  };h.max = function (a, b) {
+    var c = b == 'x' ? 'Width' : 'Height',
+        scroll = 'scroll' + c;if (!$(a).is('html,body')) return a[scroll] - $(a)[c.toLowerCase()]();var d = 'client' + c,
+        html = a.ownerDocument.documentElement,
+        body = a.ownerDocument.body;return Math.max(html[scroll], body[scroll]) - Math.min(html[d], body[d]);
+  };function both(a) {
+    return (typeof a === 'undefined' ? 'undefined' : _typeof(a)) == 'object' ? a : { top: a, left: a };
+  }
+})(jQuery);
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * Stellar.js v0.6.2
+ * http://markdalgleish.com/projects/stellar.js
+ * 
+ * Copyright 2013, Mark Dalgleish
+ * This content is released under the MIT license
+ * http://markdalgleish.mit-license.org
+ */
+
+;(function ($, window, document, undefined) {
+
+	var pluginName = 'stellar',
+	    defaults = {
+		scrollProperty: 'scroll',
+		positionProperty: 'position',
+		horizontalScrolling: true,
+		verticalScrolling: true,
+		horizontalOffset: 0,
+		verticalOffset: 0,
+		responsive: false,
+		parallaxBackgrounds: true,
+		parallaxElements: true,
+		hideDistantElements: true,
+		hideElement: function hideElement($elem) {
+			$elem.hide();
+		},
+		showElement: function showElement($elem) {
+			$elem.show();
+		}
+	},
+	    scrollProperty = {
+		scroll: {
+			getLeft: function getLeft($elem) {
+				return $elem.scrollLeft();
+			},
+			setLeft: function setLeft($elem, val) {
+				$elem.scrollLeft(val);
+			},
+
+			getTop: function getTop($elem) {
+				return $elem.scrollTop();
+			},
+			setTop: function setTop($elem, val) {
+				$elem.scrollTop(val);
+			}
+		},
+		position: {
+			getLeft: function getLeft($elem) {
+				return parseInt($elem.css('left'), 10) * -1;
+			},
+			getTop: function getTop($elem) {
+				return parseInt($elem.css('top'), 10) * -1;
+			}
+		},
+		margin: {
+			getLeft: function getLeft($elem) {
+				return parseInt($elem.css('margin-left'), 10) * -1;
+			},
+			getTop: function getTop($elem) {
+				return parseInt($elem.css('margin-top'), 10) * -1;
+			}
+		},
+		transform: {
+			getLeft: function getLeft($elem) {
+				var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
+				return computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[4], 10) * -1 : 0;
+			},
+			getTop: function getTop($elem) {
+				var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
+				return computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[5], 10) * -1 : 0;
+			}
+		}
+	},
+	    positionProperty = {
+		position: {
+			setLeft: function setLeft($elem, left) {
+				$elem.css('left', left);
+			},
+			setTop: function setTop($elem, top) {
+				$elem.css('top', top);
+			}
+		},
+		transform: {
+			setPosition: function setPosition($elem, left, startingLeft, top, startingTop) {
+				$elem[0].style[prefixedTransform] = 'translate3d(' + (left - startingLeft) + 'px, ' + (top - startingTop) + 'px, 0)';
+			}
+		}
+	},
+
+
+	// Returns a function which adds a vendor prefix to any CSS property name
+	vendorPrefix = function () {
+		var prefixes = /^(Moz|Webkit|Khtml|O|ms|Icab)(?=[A-Z])/,
+		    style = $('script')[0].style,
+		    prefix = '',
+		    prop;
+
+		for (prop in style) {
+			if (prefixes.test(prop)) {
+				prefix = prop.match(prefixes)[0];
+				break;
+			}
+		}
+
+		if ('WebkitOpacity' in style) {
+			prefix = 'Webkit';
+		}
+		if ('KhtmlOpacity' in style) {
+			prefix = 'Khtml';
+		}
+
+		return function (property) {
+			return prefix + (prefix.length > 0 ? property.charAt(0).toUpperCase() + property.slice(1) : property);
+		};
+	}(),
+	    prefixedTransform = vendorPrefix('transform'),
+	    supportsBackgroundPositionXY = $('<div />', { style: 'background:#fff' }).css('background-position-x') !== undefined,
+	    setBackgroundPosition = supportsBackgroundPositionXY ? function ($elem, x, y) {
+		$elem.css({
+			'background-position-x': x,
+			'background-position-y': y
+		});
+	} : function ($elem, x, y) {
+		$elem.css('background-position', x + ' ' + y);
+	},
+	    getBackgroundPosition = supportsBackgroundPositionXY ? function ($elem) {
+		return [$elem.css('background-position-x'), $elem.css('background-position-y')];
+	} : function ($elem) {
+		return $elem.css('background-position').split(' ');
+	},
+	    requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+		setTimeout(callback, 1000 / 60);
+	};
+
+	function Plugin(element, options) {
+		this.element = element;
+		this.options = $.extend({}, defaults, options);
+
+		this._defaults = defaults;
+		this._name = pluginName;
+
+		this.init();
+	}
+
+	Plugin.prototype = {
+		init: function init() {
+			this.options.name = pluginName + '_' + Math.floor(Math.random() * 1e9);
+
+			this._defineElements();
+			this._defineGetters();
+			this._defineSetters();
+			this._handleWindowLoadAndResize();
+			this._detectViewport();
+
+			this.refresh({ firstLoad: true });
+
+			if (this.options.scrollProperty === 'scroll') {
+				this._handleScrollEvent();
+			} else {
+				this._startAnimationLoop();
+			}
+		},
+		_defineElements: function _defineElements() {
+			if (this.element === document.body) this.element = window;
+			this.$scrollElement = $(this.element);
+			this.$element = this.element === window ? $('body') : this.$scrollElement;
+			this.$viewportElement = this.options.viewportElement !== undefined ? $(this.options.viewportElement) : this.$scrollElement[0] === window || this.options.scrollProperty === 'scroll' ? this.$scrollElement : this.$scrollElement.parent();
+		},
+		_defineGetters: function _defineGetters() {
+			var self = this,
+			    scrollPropertyAdapter = scrollProperty[self.options.scrollProperty];
+
+			this._getScrollLeft = function () {
+				return scrollPropertyAdapter.getLeft(self.$scrollElement);
+			};
+
+			this._getScrollTop = function () {
+				return scrollPropertyAdapter.getTop(self.$scrollElement);
+			};
+		},
+		_defineSetters: function _defineSetters() {
+			var self = this,
+			    scrollPropertyAdapter = scrollProperty[self.options.scrollProperty],
+			    positionPropertyAdapter = positionProperty[self.options.positionProperty],
+			    setScrollLeft = scrollPropertyAdapter.setLeft,
+			    setScrollTop = scrollPropertyAdapter.setTop;
+
+			this._setScrollLeft = typeof setScrollLeft === 'function' ? function (val) {
+				setScrollLeft(self.$scrollElement, val);
+			} : $.noop;
+
+			this._setScrollTop = typeof setScrollTop === 'function' ? function (val) {
+				setScrollTop(self.$scrollElement, val);
+			} : $.noop;
+
+			this._setPosition = positionPropertyAdapter.setPosition || function ($elem, left, startingLeft, top, startingTop) {
+				if (self.options.horizontalScrolling) {
+					positionPropertyAdapter.setLeft($elem, left, startingLeft);
+				}
+
+				if (self.options.verticalScrolling) {
+					positionPropertyAdapter.setTop($elem, top, startingTop);
+				}
+			};
+		},
+		_handleWindowLoadAndResize: function _handleWindowLoadAndResize() {
+			var self = this,
+			    $window = $(window);
+
+			if (self.options.responsive) {
+				$window.bind('load.' + this.name, function () {
+					self.refresh();
+				});
+			}
+
+			$window.bind('resize.' + this.name, function () {
+				self._detectViewport();
+
+				if (self.options.responsive) {
+					self.refresh();
+				}
+			});
+		},
+		refresh: function refresh(options) {
+			var self = this,
+			    oldLeft = self._getScrollLeft(),
+			    oldTop = self._getScrollTop();
+
+			if (!options || !options.firstLoad) {
+				this._reset();
+			}
+
+			this._setScrollLeft(0);
+			this._setScrollTop(0);
+
+			this._setOffsets();
+			this._findParticles();
+			this._findBackgrounds();
+
+			// Fix for WebKit background rendering bug
+			if (options && options.firstLoad && /WebKit/.test(navigator.userAgent)) {
+				$(window).load(function () {
+					var oldLeft = self._getScrollLeft(),
+					    oldTop = self._getScrollTop();
+
+					self._setScrollLeft(oldLeft + 1);
+					self._setScrollTop(oldTop + 1);
+
+					self._setScrollLeft(oldLeft);
+					self._setScrollTop(oldTop);
+				});
+			}
+
+			this._setScrollLeft(oldLeft);
+			this._setScrollTop(oldTop);
+		},
+		_detectViewport: function _detectViewport() {
+			var viewportOffsets = this.$viewportElement.offset(),
+			    hasOffsets = viewportOffsets !== null && viewportOffsets !== undefined;
+
+			this.viewportWidth = this.$viewportElement.width();
+			this.viewportHeight = this.$viewportElement.height();
+
+			this.viewportOffsetTop = hasOffsets ? viewportOffsets.top : 0;
+			this.viewportOffsetLeft = hasOffsets ? viewportOffsets.left : 0;
+		},
+		_findParticles: function _findParticles() {
+			var self = this,
+			    scrollLeft = this._getScrollLeft(),
+			    scrollTop = this._getScrollTop();
+
+			if (this.particles !== undefined) {
+				for (var i = this.particles.length - 1; i >= 0; i--) {
+					this.particles[i].$element.data('stellar-elementIsActive', undefined);
+				}
+			}
+
+			this.particles = [];
+
+			if (!this.options.parallaxElements) return;
+
+			this.$element.find('[data-stellar-ratio]').each(function (i) {
+				var $this = $(this),
+				    horizontalOffset,
+				    verticalOffset,
+				    positionLeft,
+				    positionTop,
+				    marginLeft,
+				    marginTop,
+				    $offsetParent,
+				    offsetLeft,
+				    offsetTop,
+				    parentOffsetLeft = 0,
+				    parentOffsetTop = 0,
+				    tempParentOffsetLeft = 0,
+				    tempParentOffsetTop = 0;
+
+				// Ensure this element isn't already part of another scrolling element
+				if (!$this.data('stellar-elementIsActive')) {
+					$this.data('stellar-elementIsActive', this);
+				} else if ($this.data('stellar-elementIsActive') !== this) {
+					return;
+				}
+
+				self.options.showElement($this);
+
+				// Save/restore the original top and left CSS values in case we refresh the particles or destroy the instance
+				if (!$this.data('stellar-startingLeft')) {
+					$this.data('stellar-startingLeft', $this.css('left'));
+					$this.data('stellar-startingTop', $this.css('top'));
+				} else {
+					$this.css('left', $this.data('stellar-startingLeft'));
+					$this.css('top', $this.data('stellar-startingTop'));
+				}
+
+				positionLeft = $this.position().left;
+				positionTop = $this.position().top;
+
+				// Catch-all for margin top/left properties (these evaluate to 'auto' in IE7 and IE8)
+				marginLeft = $this.css('margin-left') === 'auto' ? 0 : parseInt($this.css('margin-left'), 10);
+				marginTop = $this.css('margin-top') === 'auto' ? 0 : parseInt($this.css('margin-top'), 10);
+
+				offsetLeft = $this.offset().left - marginLeft;
+				offsetTop = $this.offset().top - marginTop;
+
+				// Calculate the offset parent
+				$this.parents().each(function () {
+					var $this = $(this);
+
+					if ($this.data('stellar-offset-parent') === true) {
+						parentOffsetLeft = tempParentOffsetLeft;
+						parentOffsetTop = tempParentOffsetTop;
+						$offsetParent = $this;
+
+						return false;
+					} else {
+						tempParentOffsetLeft += $this.position().left;
+						tempParentOffsetTop += $this.position().top;
+					}
+				});
+
+				// Detect the offsets
+				horizontalOffset = $this.data('stellar-horizontal-offset') !== undefined ? $this.data('stellar-horizontal-offset') : $offsetParent !== undefined && $offsetParent.data('stellar-horizontal-offset') !== undefined ? $offsetParent.data('stellar-horizontal-offset') : self.horizontalOffset;
+				verticalOffset = $this.data('stellar-vertical-offset') !== undefined ? $this.data('stellar-vertical-offset') : $offsetParent !== undefined && $offsetParent.data('stellar-vertical-offset') !== undefined ? $offsetParent.data('stellar-vertical-offset') : self.verticalOffset;
+
+				// Add our object to the particles collection
+				self.particles.push({
+					$element: $this,
+					$offsetParent: $offsetParent,
+					isFixed: $this.css('position') === 'fixed',
+					horizontalOffset: horizontalOffset,
+					verticalOffset: verticalOffset,
+					startingPositionLeft: positionLeft,
+					startingPositionTop: positionTop,
+					startingOffsetLeft: offsetLeft,
+					startingOffsetTop: offsetTop,
+					parentOffsetLeft: parentOffsetLeft,
+					parentOffsetTop: parentOffsetTop,
+					stellarRatio: $this.data('stellar-ratio') !== undefined ? $this.data('stellar-ratio') : 1,
+					width: $this.outerWidth(true),
+					height: $this.outerHeight(true),
+					isHidden: false
+				});
+			});
+		},
+		_findBackgrounds: function _findBackgrounds() {
+			var self = this,
+			    scrollLeft = this._getScrollLeft(),
+			    scrollTop = this._getScrollTop(),
+			    $backgroundElements;
+
+			this.backgrounds = [];
+
+			if (!this.options.parallaxBackgrounds) return;
+
+			$backgroundElements = this.$element.find('[data-stellar-background-ratio]');
+
+			if (this.$element.data('stellar-background-ratio')) {
+				$backgroundElements = $backgroundElements.add(this.$element);
+			}
+
+			$backgroundElements.each(function () {
+				var $this = $(this),
+				    backgroundPosition = getBackgroundPosition($this),
+				    horizontalOffset,
+				    verticalOffset,
+				    positionLeft,
+				    positionTop,
+				    marginLeft,
+				    marginTop,
+				    offsetLeft,
+				    offsetTop,
+				    $offsetParent,
+				    parentOffsetLeft = 0,
+				    parentOffsetTop = 0,
+				    tempParentOffsetLeft = 0,
+				    tempParentOffsetTop = 0;
+
+				// Ensure this element isn't already part of another scrolling element
+				if (!$this.data('stellar-backgroundIsActive')) {
+					$this.data('stellar-backgroundIsActive', this);
+				} else if ($this.data('stellar-backgroundIsActive') !== this) {
+					return;
+				}
+
+				// Save/restore the original top and left CSS values in case we destroy the instance
+				if (!$this.data('stellar-backgroundStartingLeft')) {
+					$this.data('stellar-backgroundStartingLeft', backgroundPosition[0]);
+					$this.data('stellar-backgroundStartingTop', backgroundPosition[1]);
+				} else {
+					setBackgroundPosition($this, $this.data('stellar-backgroundStartingLeft'), $this.data('stellar-backgroundStartingTop'));
+				}
+
+				// Catch-all for margin top/left properties (these evaluate to 'auto' in IE7 and IE8)
+				marginLeft = $this.css('margin-left') === 'auto' ? 0 : parseInt($this.css('margin-left'), 10);
+				marginTop = $this.css('margin-top') === 'auto' ? 0 : parseInt($this.css('margin-top'), 10);
+
+				offsetLeft = $this.offset().left - marginLeft - scrollLeft;
+				offsetTop = $this.offset().top - marginTop - scrollTop;
+
+				// Calculate the offset parent
+				$this.parents().each(function () {
+					var $this = $(this);
+
+					if ($this.data('stellar-offset-parent') === true) {
+						parentOffsetLeft = tempParentOffsetLeft;
+						parentOffsetTop = tempParentOffsetTop;
+						$offsetParent = $this;
+
+						return false;
+					} else {
+						tempParentOffsetLeft += $this.position().left;
+						tempParentOffsetTop += $this.position().top;
+					}
+				});
+
+				// Detect the offsets
+				horizontalOffset = $this.data('stellar-horizontal-offset') !== undefined ? $this.data('stellar-horizontal-offset') : $offsetParent !== undefined && $offsetParent.data('stellar-horizontal-offset') !== undefined ? $offsetParent.data('stellar-horizontal-offset') : self.horizontalOffset;
+				verticalOffset = $this.data('stellar-vertical-offset') !== undefined ? $this.data('stellar-vertical-offset') : $offsetParent !== undefined && $offsetParent.data('stellar-vertical-offset') !== undefined ? $offsetParent.data('stellar-vertical-offset') : self.verticalOffset;
+
+				self.backgrounds.push({
+					$element: $this,
+					$offsetParent: $offsetParent,
+					isFixed: $this.css('background-attachment') === 'fixed',
+					horizontalOffset: horizontalOffset,
+					verticalOffset: verticalOffset,
+					startingValueLeft: backgroundPosition[0],
+					startingValueTop: backgroundPosition[1],
+					startingBackgroundPositionLeft: isNaN(parseInt(backgroundPosition[0], 10)) ? 0 : parseInt(backgroundPosition[0], 10),
+					startingBackgroundPositionTop: isNaN(parseInt(backgroundPosition[1], 10)) ? 0 : parseInt(backgroundPosition[1], 10),
+					startingPositionLeft: $this.position().left,
+					startingPositionTop: $this.position().top,
+					startingOffsetLeft: offsetLeft,
+					startingOffsetTop: offsetTop,
+					parentOffsetLeft: parentOffsetLeft,
+					parentOffsetTop: parentOffsetTop,
+					stellarRatio: $this.data('stellar-background-ratio') === undefined ? 1 : $this.data('stellar-background-ratio')
+				});
+			});
+		},
+		_reset: function _reset() {
+			var particle, startingPositionLeft, startingPositionTop, background, i;
+
+			for (i = this.particles.length - 1; i >= 0; i--) {
+				particle = this.particles[i];
+				startingPositionLeft = particle.$element.data('stellar-startingLeft');
+				startingPositionTop = particle.$element.data('stellar-startingTop');
+
+				this._setPosition(particle.$element, startingPositionLeft, startingPositionLeft, startingPositionTop, startingPositionTop);
+
+				this.options.showElement(particle.$element);
+
+				particle.$element.data('stellar-startingLeft', null).data('stellar-elementIsActive', null).data('stellar-backgroundIsActive', null);
+			}
+
+			for (i = this.backgrounds.length - 1; i >= 0; i--) {
+				background = this.backgrounds[i];
+
+				background.$element.data('stellar-backgroundStartingLeft', null).data('stellar-backgroundStartingTop', null);
+
+				setBackgroundPosition(background.$element, background.startingValueLeft, background.startingValueTop);
+			}
+		},
+		destroy: function destroy() {
+			this._reset();
+
+			this.$scrollElement.unbind('resize.' + this.name).unbind('scroll.' + this.name);
+			this._animationLoop = $.noop;
+
+			$(window).unbind('load.' + this.name).unbind('resize.' + this.name);
+		},
+		_setOffsets: function _setOffsets() {
+			var self = this,
+			    $window = $(window);
+
+			$window.unbind('resize.horizontal-' + this.name).unbind('resize.vertical-' + this.name);
+
+			if (typeof this.options.horizontalOffset === 'function') {
+				this.horizontalOffset = this.options.horizontalOffset();
+				$window.bind('resize.horizontal-' + this.name, function () {
+					self.horizontalOffset = self.options.horizontalOffset();
+				});
+			} else {
+				this.horizontalOffset = this.options.horizontalOffset;
+			}
+
+			if (typeof this.options.verticalOffset === 'function') {
+				this.verticalOffset = this.options.verticalOffset();
+				$window.bind('resize.vertical-' + this.name, function () {
+					self.verticalOffset = self.options.verticalOffset();
+				});
+			} else {
+				this.verticalOffset = this.options.verticalOffset;
+			}
+		},
+		_repositionElements: function _repositionElements() {
+			var scrollLeft = this._getScrollLeft(),
+			    scrollTop = this._getScrollTop(),
+			    horizontalOffset,
+			    verticalOffset,
+			    particle,
+			    fixedRatioOffset,
+			    background,
+			    bgLeft,
+			    bgTop,
+			    isVisibleVertical = true,
+			    isVisibleHorizontal = true,
+			    newPositionLeft,
+			    newPositionTop,
+			    newOffsetLeft,
+			    newOffsetTop,
+			    i;
+
+			// First check that the scroll position or container size has changed
+			if (this.currentScrollLeft === scrollLeft && this.currentScrollTop === scrollTop && this.currentWidth === this.viewportWidth && this.currentHeight === this.viewportHeight) {
+				return;
+			} else {
+				this.currentScrollLeft = scrollLeft;
+				this.currentScrollTop = scrollTop;
+				this.currentWidth = this.viewportWidth;
+				this.currentHeight = this.viewportHeight;
+			}
+
+			// Reposition elements
+			for (i = this.particles.length - 1; i >= 0; i--) {
+				particle = this.particles[i];
+
+				fixedRatioOffset = particle.isFixed ? 1 : 0;
+
+				// Calculate position, then calculate what the particle's new offset will be (for visibility check)
+				if (this.options.horizontalScrolling) {
+					newPositionLeft = (scrollLeft + particle.horizontalOffset + this.viewportOffsetLeft + particle.startingPositionLeft - particle.startingOffsetLeft + particle.parentOffsetLeft) * -(particle.stellarRatio + fixedRatioOffset - 1) + particle.startingPositionLeft;
+					newOffsetLeft = newPositionLeft - particle.startingPositionLeft + particle.startingOffsetLeft;
+				} else {
+					newPositionLeft = particle.startingPositionLeft;
+					newOffsetLeft = particle.startingOffsetLeft;
+				}
+
+				if (this.options.verticalScrolling) {
+					newPositionTop = (scrollTop + particle.verticalOffset + this.viewportOffsetTop + particle.startingPositionTop - particle.startingOffsetTop + particle.parentOffsetTop) * -(particle.stellarRatio + fixedRatioOffset - 1) + particle.startingPositionTop;
+					newOffsetTop = newPositionTop - particle.startingPositionTop + particle.startingOffsetTop;
+				} else {
+					newPositionTop = particle.startingPositionTop;
+					newOffsetTop = particle.startingOffsetTop;
+				}
+
+				// Check visibility
+				if (this.options.hideDistantElements) {
+					isVisibleHorizontal = !this.options.horizontalScrolling || newOffsetLeft + particle.width > (particle.isFixed ? 0 : scrollLeft) && newOffsetLeft < (particle.isFixed ? 0 : scrollLeft) + this.viewportWidth + this.viewportOffsetLeft;
+					isVisibleVertical = !this.options.verticalScrolling || newOffsetTop + particle.height > (particle.isFixed ? 0 : scrollTop) && newOffsetTop < (particle.isFixed ? 0 : scrollTop) + this.viewportHeight + this.viewportOffsetTop;
+				}
+
+				if (isVisibleHorizontal && isVisibleVertical) {
+					if (particle.isHidden) {
+						this.options.showElement(particle.$element);
+						particle.isHidden = false;
+					}
+
+					this._setPosition(particle.$element, newPositionLeft, particle.startingPositionLeft, newPositionTop, particle.startingPositionTop);
+				} else {
+					if (!particle.isHidden) {
+						this.options.hideElement(particle.$element);
+						particle.isHidden = true;
+					}
+				}
+			}
+
+			// Reposition backgrounds
+			for (i = this.backgrounds.length - 1; i >= 0; i--) {
+				background = this.backgrounds[i];
+
+				fixedRatioOffset = background.isFixed ? 0 : 1;
+				bgLeft = this.options.horizontalScrolling ? (scrollLeft + background.horizontalOffset - this.viewportOffsetLeft - background.startingOffsetLeft + background.parentOffsetLeft - background.startingBackgroundPositionLeft) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueLeft;
+				bgTop = this.options.verticalScrolling ? (scrollTop + background.verticalOffset - this.viewportOffsetTop - background.startingOffsetTop + background.parentOffsetTop - background.startingBackgroundPositionTop) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueTop;
+
+				setBackgroundPosition(background.$element, bgLeft, bgTop);
+			}
+		},
+		_handleScrollEvent: function _handleScrollEvent() {
+			var self = this,
+			    ticking = false;
+
+			var update = function update() {
+				self._repositionElements();
+				ticking = false;
+			};
+
+			var requestTick = function requestTick() {
+				if (!ticking) {
+					requestAnimFrame(update);
+					ticking = true;
+				}
+			};
+
+			this.$scrollElement.bind('scroll.' + this.name, requestTick);
+			requestTick();
+		},
+		_startAnimationLoop: function _startAnimationLoop() {
+			var self = this;
+
+			this._animationLoop = function () {
+				requestAnimFrame(self._animationLoop);
+				self._repositionElements();
+			};
+			this._animationLoop();
+		}
+	};
+
+	$.fn[pluginName] = function (options) {
+		var args = arguments;
+		if (options === undefined || (typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
+			return this.each(function () {
+				if (!$.data(this, 'plugin_' + pluginName)) {
+					$.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+				}
+			});
+		} else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
+			return this.each(function () {
+				var instance = $.data(this, 'plugin_' + pluginName);
+				if (instance instanceof Plugin && typeof instance[options] === 'function') {
+					instance[options].apply(instance, Array.prototype.slice.call(args, 1));
+				}
+				if (options === 'destroy') {
+					$.data(this, 'plugin_' + pluginName, null);
+				}
+			});
+		}
+	};
+
+	$[pluginName] = function (options) {
+		var $window = $(window);
+		return $window.stellar.apply($window, Array.prototype.slice.call(arguments, 0));
+	};
+
+	// Expose the scroll and position property function hashes so they can be extended
+	$[pluginName].scrollProperty = scrollProperty;
+	$[pluginName].positionProperty = positionProperty;
+
+	// Expose the plugin class so it can be modified
+	window.Stellar = Plugin;
+})(jQuery, this, document);
 
 /***/ })
 /******/ ]);

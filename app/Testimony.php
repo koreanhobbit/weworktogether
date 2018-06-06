@@ -15,6 +15,7 @@ class Testimony extends Model
     	return static::create([
     		'testimony' => $request->testimony,
     		'user_id' => $user->id,
+            'rating' => $request->rating,
     	]);
     }
 

@@ -29,6 +29,11 @@ class ThemeSetting extends Model
         return $this->belongsToMany('App\Color', 'color_themesetting', 'themesetting_id', 'color_id');
     }
 
+    public function menus()
+    {
+        return $this->hasMany('App\Menu', 'themesetting_id');
+    }
+
     public function bgImage1()
     {
         return $this->images()->wherePivot('option',6)->first();

@@ -65,10 +65,13 @@
                 </a>
                 <ul class="nav nav-second-level">
                     <li {{ (Request::is('/manage/testimony/*') ? 'class="active"' : '') }}>
-                        <a href="{{ route('testimony.index') }}"> <i class="fa fa-comments-o fa-fw"></i>&nbsp;Displayed Testimony</a>
+                        <a href="{{ route('testimony.index') }}"> <i class="fa fa-comments-o fa-fw"></i>&nbsp;Testimony List</a>
+                    </li>
+                    <li {{ (Request::is('/manage/testimony/*') ? 'class="active"' : '') }}>
+                        <a href="{{ route('testimony.show') }}"> <i class="fa fa-eye fa-fw"></i>&nbsp;Displayed Testimony</a>
                     </li>
                     <li {{ (Request::is('/manage/testimony/manage*') ? 'class="active"' : '') }}>
-                        <a href="{{ route('testimony.manage') }}"> <i class="fa fa-comment-o fa-fw"></i>&nbsp;Manage Testimony</a>
+                        <a href="{{ route('testimony.manage') }}"> <i class="fa fa-comment-o fa-fw"></i>&nbsp;Create Testimony</a>
                     </li>
                 </ul>
             </li>

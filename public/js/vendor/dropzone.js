@@ -1,12 +1,113 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 13:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(14);
+
+
+/***/ }),
+
+/***/ 14:
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
 
 /*
  *
@@ -488,7 +589,6 @@ var Dropzone = function (_Emitter) {
          */
         init: function init() {},
 
-
         /**
          * Can be an **object** of additional parameters to transfer to the server, **or** a `Function`
          * that gets invoked with the `files`, `xhr` and, if it's a chunked upload, `chunk` arguments. In case
@@ -512,7 +612,6 @@ var Dropzone = function (_Emitter) {
           }
         },
 
-
         /**
          * A function that gets a [file](https://developer.mozilla.org/en-US/docs/DOM/File)
          * and a `done` function as parameters.
@@ -525,7 +624,6 @@ var Dropzone = function (_Emitter) {
         accept: function accept(file, done) {
           return done();
         },
-
 
         /**
          * The callback that will be invoked when all chunks have been uploaded for a file.
@@ -583,7 +681,6 @@ var Dropzone = function (_Emitter) {
 
           return this.element.appendChild(this.getFallbackForm());
         },
-
 
         /**
          * Gets called to calculate the thumbnail dimensions.
@@ -654,7 +751,6 @@ var Dropzone = function (_Emitter) {
           return info;
         },
 
-
         /**
          * Can be used to transform the file (for example, resize an image if necessary).
          *
@@ -671,7 +767,6 @@ var Dropzone = function (_Emitter) {
             return done(file);
           }
         },
-
 
         /**
          * A string that contains the template used for each dropped
@@ -721,13 +816,11 @@ var Dropzone = function (_Emitter) {
         },
         paste: function paste(e) {},
 
-
         // Called whenever there are no files left in the dropzone anymore, and the
         // dropzone should be displayed as if in the initial state.
         reset: function reset() {
           return this.element.classList.remove("dz-started");
         },
-
 
         // Called when a file is added to the queue
         // Receives `file`
@@ -814,7 +907,6 @@ var Dropzone = function (_Emitter) {
           }
         },
 
-
         // Called whenever a file is removed.
         removedfile: function removedfile(file) {
           if (file.previewElement != null && file.previewElement.parentNode != null) {
@@ -822,7 +914,6 @@ var Dropzone = function (_Emitter) {
           }
           return this._updateMaxFilesReachedClass();
         },
-
 
         // Called when a thumbnail has been generated
         // Receives `file` and `dataUrl`
@@ -853,7 +944,6 @@ var Dropzone = function (_Emitter) {
           }
         },
 
-
         // Called whenever an error occurs
         // Receives `file` and `message`
         error: function error(file, message) {
@@ -882,7 +972,6 @@ var Dropzone = function (_Emitter) {
         },
         errormultiple: function errormultiple() {},
 
-
         // Called when a file gets processed. Since there is a cue, not all added
         // files are processed immediately.
         // Receives `file`
@@ -895,7 +984,6 @@ var Dropzone = function (_Emitter) {
           }
         },
         processingmultiple: function processingmultiple() {},
-
 
         // Called whenever the upload progress gets updated.
         // Receives `file`, `progress` (percentage 0-100) and `bytesSent`.
@@ -921,18 +1009,15 @@ var Dropzone = function (_Emitter) {
           }
         },
 
-
         // Called whenever the total upload progress gets updated.
         // Called with totalUploadProgress (0-100), totalBytes and totalBytesSent
         totaluploadprogress: function totaluploadprogress() {},
-
 
         // Called just before the file is sent. Gets the `xhr` object as second
         // parameter, so you can modify it (for example to add a CSRF token) and a
         // `formData` object to add additional information.
         sending: function sending() {},
         sendingmultiple: function sendingmultiple() {},
-
 
         // When the complete upload is finished and successful
         // Receives `file`
@@ -943,13 +1028,11 @@ var Dropzone = function (_Emitter) {
         },
         successmultiple: function successmultiple() {},
 
-
         // When the upload is canceled.
         canceled: function canceled(file) {
           return this.emit("error", file, "Upload canceled.");
         },
         canceledmultiple: function canceledmultiple() {},
-
 
         // When the upload is finished, either with success or an error.
         // Receives `file`
@@ -1641,7 +1724,6 @@ var Dropzone = function (_Emitter) {
 
       this.emit("paste", e);
       var items = e.clipboardData.items;
-
 
       if (items.length) {
         return this._addFilesFromItems(items);
@@ -3502,3 +3584,37 @@ function __guardMethod__(obj, methodName, transform) {
     return undefined;
   }
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)(module)))
+
+/***/ }),
+
+/***/ 15:
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ })
+
+/******/ });

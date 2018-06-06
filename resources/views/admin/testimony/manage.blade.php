@@ -15,7 +15,7 @@
 								<div class="form-group">
 									<label for="userRole">User Type</label>
 									<select name="userRole" id="userRole" class="form-control">
-										<option value="" data-url="{{ route('testimony.manage') }}">Choose User Type</option>
+										<option value="" data-url="{{ route('testimony.manage') }}">Choose User Role</option>
 										@foreach($roles as $role)
 											<option value="{{ $role->id }}">{{ $role->display_name }}</option>
 										@endforeach

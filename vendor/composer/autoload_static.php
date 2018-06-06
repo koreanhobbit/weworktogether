@@ -16,10 +16,10 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -421,6 +421,7 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'App\\Mail\\NewUserManualPassword' => __DIR__ . '/../..' . '/app/Mail/NewUserManualPassword.php',
         'App\\Mail\\NewUserWelcome' => __DIR__ . '/../..' . '/app/Mail/NewUserWelcome.php',
         'App\\Medium' => __DIR__ . '/../..' . '/app/Medium.php',
+        'App\\Menu' => __DIR__ . '/../..' . '/app/Menu.php',
         'App\\Messenger' => __DIR__ . '/../..' . '/app/Messenger.php',
         'App\\MessengerType' => __DIR__ . '/../..' . '/app/MessengerType.php',
         'App\\Partner' => __DIR__ . '/../..' . '/app/Partner.php',
@@ -2142,6 +2143,7 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'MenuSeeder' => __DIR__ . '/../..' . '/database/seeds/MenuSeeder.php',
         'MessengerTypeSeeder' => __DIR__ . '/../..' . '/database/seeds/MessengerTypeSeeder.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
@@ -3187,7 +3189,9 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'Psy\\Readline\\Libedit' => __DIR__ . '/..' . '/psy/psysh/src/Readline/Libedit.php',
         'Psy\\Readline\\Readline' => __DIR__ . '/..' . '/psy/psysh/src/Readline/Readline.php',
         'Psy\\Readline\\Transient' => __DIR__ . '/..' . '/psy/psysh/src/Readline/Transient.php',
+        'Psy\\Reflection\\ReflectionClassConstant' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionClassConstant.php',
         'Psy\\Reflection\\ReflectionConstant' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionConstant.php',
+        'Psy\\Reflection\\ReflectionConstant_' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionConstant_.php',
         'Psy\\Reflection\\ReflectionLanguageConstruct' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionLanguageConstruct.php',
         'Psy\\Reflection\\ReflectionLanguageConstructParameter' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionLanguageConstructParameter.php',
         'Psy\\Shell' => __DIR__ . '/..' . '/psy/psysh/src/Shell.php',

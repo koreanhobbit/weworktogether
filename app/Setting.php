@@ -41,4 +41,9 @@ class Setting extends Model
     {
         return $this->images()->wherePivot('option', 5)->first();
     }
+
+    public function partners()
+    {
+        return $this->hasMany('App\Partner', 'setting_id');
+    }
 }

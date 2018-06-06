@@ -3,7 +3,7 @@
     <div class="col-sm-4 pricing-box"  {{ $key == 1 ? 'featured-price' : '' }}>
       <div class="wow bounceInUp" data-wow-delay="{{ $key == 0 ? '0.1s' : '' }} {{ $key == 1 ? '0.2s' : '' }} {{ $key == 2 ? '0.3s' : '' }}">
         <div class="pricing-content {{ $key == 0 || $key == 2 ? 'general' : ''}} {{ $key==1 ? 'featured' : '' }}">
-          <h2>Paket {{ $pricing->name }}</h2>
+          <h2>{{ $pricing->name }} Package</h2>
           @if($pricing->fare->show_price == 0)
             <h3>{{ $pricing->fare->message }}</h3>
           @else

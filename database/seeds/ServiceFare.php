@@ -12,9 +12,9 @@ class ServiceFare extends Seeder
     public function run()
     {
         DB::table('service_fares')->insert([
-        	'currency' => 'Rp',
+        	'currency' => '$',
         	'period' => 'Hour',
-        	'fee' => 150000,
+        	'fee' => 12,
         	'show_price' => 1,
         	'message' => 'Contact Us',
         	'service_id' => 1,
@@ -23,9 +23,9 @@ class ServiceFare extends Seeder
         ]);
 
         DB::table('service_fares')->insert([
-        	'currency' => 'Rp',
+        	'currency' => '$',
         	'period' => 'Hour',
-        	'fee' => 150000,
+        	'fee' => 12,
         	'show_price' => 1,
         	'message' => 'Contact Us',
         	'service_id' => 2,
@@ -34,9 +34,9 @@ class ServiceFare extends Seeder
         ]);
 
         DB::table('service_fares')->insert([
-        	'currency' => 'Rp',
+        	'currency' => '$',
         	'period' => 'Hour',
-        	'fee' => 150000,
+        	'fee' => 12,
         	'show_price' => 1,
         	'message' => 'Contact Us',
         	'service_id' => 3,
@@ -45,7 +45,7 @@ class ServiceFare extends Seeder
         ]);
 
         DB::table('service_fares')->insert([
-        	'currency' => 'Rp',
+        	'currency' => '$',
         	'period' => 'Word',
         	'fee' => NULL,
         	'show_price' => 0,
@@ -56,9 +56,9 @@ class ServiceFare extends Seeder
         ]);
 
         DB::table('service_fares')->insert([
-        	'currency' => 'Rp',
+        	'currency' => '$',
         	'period' => 'Trip',
-        	'fee' => 650000,
+        	'fee' => 5,
         	'show_price' => 1,
         	'message' => 'Contact Us',
         	'service_id' => 5,
@@ -67,7 +67,7 @@ class ServiceFare extends Seeder
         ]);
 
         DB::table('service_fares')->insert([
-        	'currency' => 'Rp',
+        	'currency' => '$',
         	'period' => '',
         	'fee' => NULL,
         	'show_price' => 0,
@@ -78,7 +78,7 @@ class ServiceFare extends Seeder
         ]);
 
         DB::table('service_fares')->insert([
-        	'currency' => 'Rp',
+        	'currency' => '$',
         	'period' => '',
         	'fee' => NULL,
         	'show_price' => 0,

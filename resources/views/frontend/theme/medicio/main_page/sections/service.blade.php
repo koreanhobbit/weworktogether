@@ -1,12 +1,14 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6 hidden-xs">
     <div class="wow fadeInUp" data-wow-delay="0.2s">
-      <img src="{{ asset('frontend/medicio/img/dummy/img-1.png') }}" class="img-responsive img-service" alt="" />
+      <img src="{{ asset('frontend/medicio/img/product/img-1.png') }}" class="img-responsive img-service" alt="" />
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="row">
-      @foreach($services as $service)
+    @foreach($services as $key => $service)
+      @if($key % 2 == 1)
+        <div class="row">
+      @endif
         <div class="col-sm-6 col-md-6">
           <div class="wow fadeInRight" data-wow-delay="0.1s">
             <div class="service-box">
@@ -26,7 +28,9 @@
             </div>
           </div>
         </div>
-      @endforeach
-    </div>
+      @if($key % 2 == 1)  
+        </div>
+      @endif
+    @endforeach
   </div>
 </div>

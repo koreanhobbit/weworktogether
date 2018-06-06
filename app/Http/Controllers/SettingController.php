@@ -223,6 +223,13 @@ class SettingController extends Controller
             $setting->themesetting->images()->attach($bgImage2, ['option' => 7, 'info' => 'theme image 2']);
         }
 
+        //save the mainpage controller
+        foreach($setting->themesetting->menus as $menu) {
+            $name = $menu->name . 'controller';
+            $menu->show = $request->$name;
+            $menu->save();
+        }
+        
         return redirect()->route('setting.index', ['setting' => 1 ])->with('flashmessage', 'Setting is reset');
     }
 

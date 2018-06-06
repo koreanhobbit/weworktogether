@@ -48,7 +48,7 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-group {{ $errors->has('birthday') ? 'has-error' : '' }}">
-										<label for="birthday">Birthday</label>
+										<label for="birthday">Birthday*</label>
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="fa fa-calendar"></i>
@@ -67,7 +67,7 @@
 									</div>
 
 									<div class="form-group {{ $errors->has('whatsapp') ? 'has-error' : '' }}">
-										<label for="whatsapp">Phone/Whatsapp</label>
+										<label for="whatsapp">Phone/Whatsapp*</label>
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="fa fa-whatsapp"></i>

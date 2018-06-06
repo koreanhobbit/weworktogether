@@ -11895,3 +11895,11 @@ button.close {
   opacity: 0.9;
 }
 
+.checked {
+  color: orange;
+}
+
+.star {
+  cursor: pointer;
+}
+

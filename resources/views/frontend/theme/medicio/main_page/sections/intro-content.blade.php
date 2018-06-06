@@ -1,6 +1,6 @@
 {{ csrf_field() }}
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-6 hidden-xs">
     <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
       <h2 class="h-ultra" style="color:white;">{{ $setting->name }}</h2>
     </div>
@@ -11,9 +11,10 @@
       <div class="wow fadeInRight" data-wow-delay="0.1s">
 
         <ul class="lead-list">
-          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Service yang profesional</strong><br />Kami 24 jam melayani anda</span></li>
-          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Staff berpengalaman</strong><br />Guide dan pendamping fasih berbahasa lokal</span></li>
-          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Menyediakan segala kebutuhan</strong><br />Mulai dari simcard hingga rental mobil</span></li>
+          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Worldwide Student Database</strong><br />We provide student database from all around the world</span></li>
+          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Professional Services</strong><br />We are here for you 24/7</span></li>
+          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Experienced staffs</strong><br />Fluent in local languages guides</span></li>
+          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Provide anything you need</strong><br />From phone simcard to renting car</span></li>
         </ul>
       </div>
     </div>
@@ -31,73 +32,6 @@
             <div id="errormessage"></div>
 
             <form action="" method="post" role="form" class="bookingForm lead">
-              {{-- <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <div class="form-group {{ $errors->has('intro-name') ? 'has-error' : '' }}">
-                    <label>Nama</label>
-                    <input type="text" name="intro-name" id="intro-name" class="form-control input-md" required>
-                    @if($errors->has('intro-name'))
-                      <div class="help-block">
-                        <span>
-                          <strong>
-                            {{ $errors->first('intro-name') }}
-                          </strong>
-                        </span>
-                      </div>
-                    @endif
-                  </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <div class="form-group {{ $errors->has('intro-email') ? 'has-error' : '' }}">
-                    <label>Email</label>
-                    <input type="email" name="intro-email" id="intro-email" class="form-control input-md" required>
-                    @if($errors->has('intro-email'))
-                      <div class="help-block">
-                        <span>
-                          <strong>
-                            {{ $errors->first('intro-email') }}
-                          </strong>
-                        </span>
-                      </div>
-                    @endif
-                  </div>
-                </div>
-              </div> --}}
-
-              {{-- <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <div class="form-group {{ $errors->has('intro-phone') ? 'has-error' : '' }}">
-                    <label>Nomor Telepon</label>
-                    <input type="tel" name="intro-phone" id="intro-phone" class="form-control input-md" required>
-                    @if($errors->has('intro-phone'))
-                      <div class="help-block">
-                        <span>
-                          <strong>
-                            {{ $errors->first('intro-phone') }}
-                          </strong>
-                        </span>
-                      </div>
-                    @endif
-                  </div>
-                </div>
-
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <div class="form-group {{ $errors->has('intro-whatsapp') ? 'has-error' : '' }}">
-                    <label>Nomor Whatsapp</label>
-                    <input type="tel" name="intro-whatsapp" id="intro-whatsapp" class="form-control input-md" required>
-                    @if($errors->has('intro-whatsapp'))
-                      <div class="help-block">
-                        <span>
-                          <strong>
-                            {{ $errors->first('intro-whatsapp') }}
-                          </strong>
-                        </span>
-                      </div>
-                    @endif
-                  </div>
-                </div>
-              </div> --}}
-
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group {{ $errors->has('intro-origin-country') ? 'has-error' : '' }}">

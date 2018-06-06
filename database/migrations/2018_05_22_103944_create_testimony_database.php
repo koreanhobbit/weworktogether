@@ -16,6 +16,7 @@ class CreateTestimonyDatabase extends Migration
         Schema::create('testimonies', function (Blueprint $table) {
             $table->increments('id');
             $table->text('testimony');
+            $table->integer('rating');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('is_display')->default(0);

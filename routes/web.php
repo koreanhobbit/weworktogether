@@ -66,7 +66,19 @@ Route::prefix('manage')->group(function() {
     Route::resource('scannedfile', 'ScannedfileController')->middleware('role:superadministrator');
 
     //##Testimony Management##//
+    Route::delete('testimony/{testimony}', 'TestimonyController@destroy')->name('testimony.destroy')->middleware('role:superadministrator');
+
+    Route::put('testimony/{testimony}', 'TestimonyController@update')->name('testimony.update')->middleware('role:superadministrator');
+
+    Route::get('testimony/{testimony}/edit', 'TestimonyController@edit')->name('testimony.edit')->middleware('role:superadministrator');
+
+    Route::post('testimony/{user}', 'TestimonyController@store')->name('testimony.store')->middleware('role:superadministrator');
+
+    Route::get('testimony/create/{user}', 'TestimonyController@create')->name('testimony.create')->middleware('role:superadministrator');
+
     Route::get('testimony/manage', 'TestimonyController@manage')->name('testimony.manage')->middleware('role:superadministrator');
+
+    Route::get('testimony/displayed', 'TestimonyController@show')->name('testimony.show')->middleware('role:superadministrator');
 
     Route::get('testimony', 'TestimonyController@index')->name('testimony.index')->middleware('role:superadministrator');
 

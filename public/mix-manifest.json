@@ -6,7 +6,7 @@
     "/frontend/medicio/css/medicio_app.css": "/frontend/medicio/css/medicio_app.css",
     "/frontend/medicio/js/app.js": "/frontend/medicio/js/app.js",
     "/js/admin.js": "/js/admin.js",
-    "/js/Chart.js": "/js/Chart.js",
     "/js/vendor/dropzone.js": "/js/vendor/dropzone.js",
-    "/frontend/medicio/js/owl.carousel.js": "/frontend/medicio/js/owl.carousel.js"
+    "/frontend/medicio/js/custom.js": "/frontend/medicio/js/custom.js",
+    "/js/Chart.js": "/js/Chart.js"
 }

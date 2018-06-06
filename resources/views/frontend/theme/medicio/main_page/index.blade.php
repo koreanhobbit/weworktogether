@@ -137,7 +137,7 @@
             <div class="wow lightSpeedIn" data-wow-delay="0.1s">
               <div class="section-heading text-center">
                 <h2 class="h-bold">Pricing</h2>
-                <p>Pilih jasa service yang anda inginkan dari beberapa paket service yang ditawarkan</p>
+                <p>Choose the package that you need from several list of our services</p>
               </div>
             </div>
             <div class="divider-short"></div>
@@ -158,7 +158,7 @@
             <div class="wow lightSpeedIn" data-wow-delay="0.1s">
               <div class="section-heading text-center">
                 <h2 class="h-bold">Our partner</h2>
-                <p>Take charge of your health today with our specially designed health packages</p>
+                <p>We partner up with the best in the business</p>
               </div>
             </div>
             <div class="divider-short"></div>

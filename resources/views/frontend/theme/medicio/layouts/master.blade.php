@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="{{ asset('frontend/medicio/css/medicio_app.css') }}">
   <link rel="stylesheet" href="{{ asset('frontend/medicio/css/animate.css') }}">
   <link rel="stylesheet" href="{{ asset('frontend/medicio/css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 
   {{-- icon tab --}}
   <link rel="icon" href="{{ !empty($setting->images()->wherePivot('option', 5)->first()) ? asset($setting->images()->wherePivot('option', 5)->first()->thumbnail->location) : asset('images/astrologo.png') }}">
@@ -35,13 +37,12 @@
 
   <!-- Core JavaScript Files -->
   <script src="{{ asset('frontend/medicio/js/app.js') }}"></script>
-  <script src="{{ asset('frontend/medicio/js/jquery.easing.min.js') }}"></script>
-  <script src="{{ asset('frontend/medicio/js/wow.min.js') }}"></script>
-  <script src="{{ asset('frontend/medicio/js/jquery.scrollTo.js') }}"></script>
-  <script src="{{ asset('frontend/medicio/js/owl.carousel.js') }}"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <script src="{{ asset('frontend/medicio/js/custom.js') }}"></script>
   @yield('script')
   @include('frontend.messenger.tawkto')
 </body>
-
 </html>

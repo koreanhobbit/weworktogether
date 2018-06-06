@@ -27,6 +27,7 @@
 						<a href="#contactsetting" data-toggle="tab">Contact Setting</a>
 					</li>
 					<li><a href="#themesetting" data-toggle="tab">Theme Setting</a></li>
+					<li><a href="#mainpagecontroller" data-toggle="tab">Main Page Controller</a></li>
 				</ul>
 				<div class="tab-content">
 					{{-- Content for general setting --}}
@@ -289,6 +290,28 @@
 										@endcomponent
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="mainpagecontroller">
+						<div class="row">
+							<div class="col-sm-12">
+								@component('admin.widgets.panel')
+									@slot('class', 'info')
+									@slot('panelTitle', 'Set Main Page Option')
+									@slot('panelBody')
+										@foreach($setting->themesetting->first()->menus as $menu)
+											<div class="form-group">
+												<label for="{{ $menu->name . 'controller' }}">{{ ucfirst($menu->name) . ' ' . 'Controller' }}</label>
+												<select name="{{ $menu->name . 'controller'}}" id="{{ $menu->name . 'controller'}}" class="form-control">
+													<option value="0" {{ $menu->show == 0 ? 'selected' : '' }}>{{ 'Show Dummy' . ' ' . ucfirst($menu->name) }}</option>
+													<option value="1" {{ $menu->show == 1 ? 'selected' : '' }}>{{ 'Show Real' . ' ' . ucfirst($menu->name) }}</option>
+												</select>
+											</div>
+											<input type="hidden" name="{{ $menu->name . 'id' }}" value="{{ $menu->id }}">
+										@endforeach
+									@endslot
+								@endcomponent
 							</div>
 						</div>
 					</div>

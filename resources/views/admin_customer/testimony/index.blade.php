@@ -24,8 +24,10 @@
 											<thead>
 												<tr>
 													<th class="text-center col">No</th>
-													<th class="text-center col-sm-2">Date</th>
-													<th class="text-center col-sm-10">Testimony</th>
+													<th class="text-center col-sm-2">Created at</th>
+													<th class="text-center col-sm-2">Rating Star</th>
+													<th class="text-center col-sm-8">Testimony</th>
+													
 												</tr>
 											</thead>
 											<tbody>
@@ -34,6 +36,14 @@
 														<tr>
 															<td class="text-center">{{ $key + 1 }}</td>
 															<td class="text-center">{{ $testimony->created_at->diffForHumans() }}</td>
+															<td class="text-center">
+																@for ($i=1; $i <= $testimony->rating; $i++)
+																	<span class="fa fa-star checked"></span>
+																@endfor
+																@for($i=1; $i <= 5-$testimony->rating; $i++)
+													              <span class="fa fa-star"></span>
+													            @endfor
+															</td>
 															<td class="text-center">{{ $testimony->testimony }}</td>
 														</tr>
 													@endforeach
