@@ -1153,6 +1153,7 @@ return array(
     'Illuminate\\Foundation\\Console\\MailMakeCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/Console/MailMakeCommand.php',
     'Illuminate\\Foundation\\Console\\ModelMakeCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/Console/ModelMakeCommand.php',
     'Illuminate\\Foundation\\Console\\NotificationMakeCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/Console/NotificationMakeCommand.php',
+    'Illuminate\\Foundation\\Console\\ObserverMakeCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/Console/ObserverMakeCommand.php',
     'Illuminate\\Foundation\\Console\\PackageDiscoverCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/Console/PackageDiscoverCommand.php',
     'Illuminate\\Foundation\\Console\\PolicyMakeCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/Console/PolicyMakeCommand.php',
     'Illuminate\\Foundation\\Console\\PresetCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/Console/PresetCommand.php',
