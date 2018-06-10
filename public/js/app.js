@@ -12868,9 +12868,7 @@ if (typeof jQuery === 'undefined') {
 
 __webpack_require__(4);
 __webpack_require__(5);
-__webpack_require__(6);
-__webpack_require__(7);
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
@@ -12902,18 +12900,6 @@ __webpack_require__(0);
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 8 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

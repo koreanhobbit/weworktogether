@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="gerbang pertama menuju korea">
-  <meta name="author" content="Perantau Indonesia">
+  <meta name="description" content="Local guides | travelling | tourist | tourism | translation">
+  <meta name="author" content="Linked Nomad">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>{{ ucfirst($setting->name) }}</title>
@@ -28,7 +28,6 @@
   @yield('style')
   <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
   <div id="wrapper">
     @yield('body')
@@ -39,7 +38,6 @@
   <script src="{{ asset('frontend/medicio/js/app.js') }}"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <script src="{{ asset('frontend/medicio/js/custom.js') }}"></script>
   @yield('script')

@@ -6,7 +6,7 @@
   </div>
   <div class="col-sm-6">
     @foreach($services as $key => $service)
-      @if($key % 2 == 1)
+      @if($key % 2 == 0)
         <div class="row">
       @endif
         <div class="col-sm-6 col-md-6">

@@ -14,7 +14,7 @@
                 paramName: "image",
                 acceptedFiles: "image/*",
                 maxFilesize:3,
-                init: function () {
+                init: function() {
                     thisDropzone = this;
                     this.on("error", function (file, responseText) {
                         $.each(responseText, function (index, value) {

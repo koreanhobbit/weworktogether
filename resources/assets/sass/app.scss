@@ -7,6 +7,12 @@
 // Font Awesome
 @import "node_modules/font-awesome/scss/font-awesome";
 
+//admin
+@import "resources/assets/sass/admin";
+
+//timeline
+@import "resources/assets/sass/timeline";
+
 //overrides
 @import "resources/assets/backend/overrides";
 
