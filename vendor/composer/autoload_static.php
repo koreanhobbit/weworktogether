@@ -86,6 +86,10 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
             'Laravel\\Tinker\\' => 15,
             'Laratrust\\' => 10,
         ),
+        'J' => 
+        array (
+            'Jrean\\UserVerification\\' => 23,
+        ),
         'I' => 
         array (
             'Intervention\\Image\\' => 19,
@@ -260,6 +264,10 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         array (
             0 => __DIR__ . '/..' . '/santigarcor/laratrust/src',
         ),
+        'Jrean\\UserVerification\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jrean/laravel-user-verification/src',
+        ),
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
@@ -398,6 +406,8 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'App\\Http\\Controllers\\CustomerTestimonyController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerTestimonyController.php',
         'App\\Http\\Controllers\\FileController' => __DIR__ . '/../..' . '/app/Http/Controllers/FileController.php',
         'App\\Http\\Controllers\\FormController' => __DIR__ . '/../..' . '/app/Http/Controllers/FormController.php',
+        'App\\Http\\Controllers\\GuideHomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/GuideHomeController.php',
+        'App\\Http\\Controllers\\GuideProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/GuideProfileController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImageController.php',
         'App\\Http\\Controllers\\MainPageController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainPageController.php',
@@ -2061,6 +2071,22 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
+        'Jrean\\UserVerification\\Events\\UserVerified' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Events/UserVerified.php',
+        'Jrean\\UserVerification\\Events\\VerificationEmailSent' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Events/VerificationEmailSent.php',
+        'Jrean\\UserVerification\\Exceptions\\ModelNotCompliantException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/ModelNotCompliantException.php',
+        'Jrean\\UserVerification\\Exceptions\\TokenMismatchException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/TokenMismatchException.php',
+        'Jrean\\UserVerification\\Exceptions\\UserHasNoEmailException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserHasNoEmailException.php',
+        'Jrean\\UserVerification\\Exceptions\\UserIsVerifiedException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserIsVerifiedException.php',
+        'Jrean\\UserVerification\\Exceptions\\UserNotFoundException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserNotFoundException.php',
+        'Jrean\\UserVerification\\Exceptions\\UserNotVerifiedException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserNotVerifiedException.php',
+        'Jrean\\UserVerification\\Facades\\UserVerification' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Facades/UserVerification.php',
+        'Jrean\\UserVerification\\Mail\\VerificationTokenGenerated' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Mail/VerificationTokenGenerated.php',
+        'Jrean\\UserVerification\\Middleware\\IsVerified' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Middleware/IsVerified.php',
+        'Jrean\\UserVerification\\Traits\\RedirectsUsers' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Traits/RedirectsUsers.php',
+        'Jrean\\UserVerification\\Traits\\UserVerification' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Traits/UserVerification.php',
+        'Jrean\\UserVerification\\Traits\\VerifiesUsers' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Traits/VerifiesUsers.php',
+        'Jrean\\UserVerification\\UserVerification' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/UserVerification.php',
+        'Jrean\\UserVerification\\UserVerificationServiceProvider' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/UserVerificationServiceProvider.php',
         'LaratrustSeeder' => __DIR__ . '/../..' . '/database/seeds/LaratrustSeeder.php',
         'Laratrust\\Commands\\AddLaratrustUserTraitUseCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/AddLaratrustUserTraitUseCommand.php',
         'Laratrust\\Commands\\MakePermissionCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/MakePermissionCommand.php',

@@ -32,11 +32,27 @@ class LoginController extends Controller
         if($user->hasRole('superadministrator')) {
             return route('manage.index');
         }
-        if($user->hasRole(['customer', 'guide', 'provider'])) {
+        if($user->hasRole(['customer', 'provider'])) {
+            return route('mainpage.index');
+        }
+
+        if($user->hasRole('guide')) {
+            if(empty($user->detail)) {
+                return route('guide.profile.index', ['user' => $user->id, 'name' => $user->name]);
+            }
+
+            else {
+                return route('guide.dashboard.index', ['user' => $user->id, 'name' => $user->name]);
+            }
             return route('mainpage.index');
         }
 
         return route('mainpage.index'); 
+    }
+
+    public function showLoginForm()
+    {
+        return view('/');
     } 
     /**
      * Create a new controller instance.

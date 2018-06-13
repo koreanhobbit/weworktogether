@@ -40,7 +40,7 @@ class RegisterController extends Controller
 
         //if role is guide
         if($user->hasRole('guide')) {
-            return route('manage.index');
+            return route('guide.profile.index', ['user' => $user->id, 'name' => $user->name]);
         }
 
         //if role is provider
@@ -61,6 +61,11 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        return view('/');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -75,7 +80,6 @@ class RegisterController extends Controller
             'registerpassword' => 'required|string|min:6|confirmed',
             'registerrole' => 'required|integer|between:5,7',
             'g-recaptcha-response' => 'required|captcha',
-
         ]);
     }
 

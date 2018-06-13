@@ -14,7 +14,7 @@
           <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Worldwide Student Database</strong><br />We provide student database from all around the world</span></li>
           <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Professional Services</strong><br />We are here for you 24/7</span></li>
           <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Experienced staffs</strong><br />Fluent in local languages guides</span></li>
-          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Provide anything you need</strong><br />From phone simcard to renting car</span></li>
+          <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Provide anything you need</strong><br />From phone simcard to rental car</span></li>
         </ul>
       </div>
     </div>

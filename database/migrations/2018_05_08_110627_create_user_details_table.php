@@ -16,6 +16,7 @@ class CreateUserDetailsTable extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->increments('id');
             $table->string('phone');
+            $table->string('telegram')->nullable();
             $table->date('birthday');
             $table->string('birthday_string');
             $table->text('address')->nullable();

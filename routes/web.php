@@ -137,7 +137,19 @@ Route::prefix('customer')->middleware('role:customer')->group(function() {
 });
 
 
+//####################//
+//####GUIDE BACKEND###//
+//####################//
 
+
+Route::prefix('guide')->middleware('role:guide')->group(function() {
+    //#profile#//
+
+    Route::get('{user}/profile/{name}', 'GuideProfileController@index')->name('guide.profile.index');
+
+    //#dashboard#//
+    Route::get('{user}/dashboard/{name}', 'GuideHomeController@index')->name('guide.dashboard.index');
+});
 
 
 

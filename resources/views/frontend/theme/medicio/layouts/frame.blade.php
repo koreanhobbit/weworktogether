@@ -18,11 +18,13 @@
                   @if(Auth::user()->hasRole('superadministrator'))
                     <a href="{{ route('manage.index') }}" class="btn btn-sm btn-primary">Dashboard</a>  
                   @elseif(Auth::user()->hasRole('customer'))
-                    <a href="{{ route('customer.dashboard.index', ['user' => Auth::user()->id, 'name' => Auth::user()->name]) }}" class="btn btn-sm btn-primary">Dashboard</a>  
+                    <a href="{{ route('customer.dashboard.index', ['user' => Auth::user()->id, 'name' => Auth::user()->name]) }}" class="btn btn-sm btn-primary">Dashboard</a>
+                  @elseif(Auth::user()->hasRole('guide'))
+                    <a href="{{ route('guide.dashboard.index', ['user' => Auth::user()->id, 'name' => Auth::user()->name]) }}" class="btn btn-sm btn-primary">Dashboard</a>
                   @else
                   <form action="{{ route('logout') }}" method="post">
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-sm btn-primary">Log out</button>
+                    <button type="submit" class="btn btn-sm btn-primary pull-right">Log out</button>
                   </form>
                   @endif
                 @endif

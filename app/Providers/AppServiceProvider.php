@@ -45,6 +45,12 @@ class AppServiceProvider extends ServiceProvider
             $setting->with('setting', \App\Setting::first());
         });
 
+        //######################################//
+        //#############GUIDE BACKEND############//
+        //######################################//
+        view()->composer('admin_guide.layouts.nav', function($setting) {
+            $setting->with('setting', \App\Setting::first());
+        });
     }
 
     /**
