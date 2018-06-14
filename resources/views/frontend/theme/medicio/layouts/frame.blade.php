@@ -40,7 +40,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
           <a class="navbar-brand" href="{{ route('mainpage.index') }}">
-                    <img src="{{ !empty($setting->logoImage()) ? asset($setting->logoImage()->location) : asset('images/astrologo.png') }}" title="{{ !empty($setting->logoImage()) ? $setting->logoImage()->name : 'Astro Logo' }}" width="150" height="40" />
+                    <img src="{{ !empty($setting->logoImage()) ? asset($setting->logoImage()->location) : asset('images/astrologo.png') }}" title="{{ !empty($setting->logoImage()) ? $setting->logoImage()->name : 'Astro Logo' }}" width="200" height="40" />
                 </a>
         </div>
 
