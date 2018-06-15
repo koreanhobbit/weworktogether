@@ -13,7 +13,7 @@
     {{-- dropzone css --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.0.1/min/dropzone.min.css">
     {{-- icon tab --}}
-    <link rel="icon" href="{{ !empty($setting->images()->wherePivot('option', 5)->first()) ? asset($setting->images()->wherePivot('option', 5)->first()->thumbnail->location) : asset('images/astrologo.png') }}">
+    <link rel="icon" href="{{ !empty($setting->images()->wherePivot('option', 5)->first()) ? asset($setting->images()->wherePivot('option', 5)->first()->thumbnail->location) : asset('images/icon.png') }}">
     
     @yield('style')
 

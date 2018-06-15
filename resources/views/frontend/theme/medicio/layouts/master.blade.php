@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 
   {{-- icon tab --}}
-  <link rel="icon" href="{{ !empty($setting->images()->wherePivot('option', 5)->first()) ? asset($setting->images()->wherePivot('option', 5)->first()->thumbnail->location) : asset('images/astrologo.png') }}">
+  <link rel="icon" href="{{ !empty($setting->images()->wherePivot('option', 5)->first()) ? asset($setting->images()->wherePivot('option', 5)->first()->thumbnail->location) : asset('images/icon.png') }}">
  
   <!-- boxed bg -->
   <link id="bodybg" href="{{ !empty($setting->themeBackground) ? asset($setting->themeBackground->location) : asset('frontend/medicio/bodybg/bg5.css') }}" rel="stylesheet" type="text/css" />
