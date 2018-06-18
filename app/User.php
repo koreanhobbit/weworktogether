@@ -59,4 +59,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Testimony');
     }
+
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
 }

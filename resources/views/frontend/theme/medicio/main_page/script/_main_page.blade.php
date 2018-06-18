@@ -194,5 +194,10 @@
 		@if($errors->has('forgetemail'))
 			$('#form-email-reset').modal('show');
 		@endif
+
+		//show modal for registration link
+		@if(session()->has('login'))
+			$('#loginmodal').modal('show');
+		@endif
 	});
 </script>

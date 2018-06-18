@@ -16,10 +16,10 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -85,10 +85,6 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
             'Laratrust\\' => 10,
-        ),
-        'J' => 
-        array (
-            'Jrean\\UserVerification\\' => 23,
         ),
         'I' => 
         array (
@@ -264,10 +260,6 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         array (
             0 => __DIR__ . '/..' . '/santigarcor/laratrust/src',
         ),
-        'Jrean\\UserVerification\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jrean/laravel-user-verification/src',
-        ),
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
@@ -428,8 +420,8 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Image' => __DIR__ . '/../..' . '/app/Image.php',
-        'App\\Mail\\NewUserManualPassword' => __DIR__ . '/../..' . '/app/Mail/NewUserManualPassword.php',
-        'App\\Mail\\NewUserWelcome' => __DIR__ . '/../..' . '/app/Mail/NewUserWelcome.php',
+        'App\\Mail\\NewUserAuto' => __DIR__ . '/../..' . '/app/Mail/NewUserAuto.php',
+        'App\\Mail\\VerifyReg' => __DIR__ . '/../..' . '/app/Mail/VerifyReg.php',
         'App\\Medium' => __DIR__ . '/../..' . '/app/Medium.php',
         'App\\Menu' => __DIR__ . '/../..' . '/app/Menu.php',
         'App\\Messenger' => __DIR__ . '/../..' . '/app/Messenger.php',
@@ -457,6 +449,7 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'App\\Thumbnail' => __DIR__ . '/../..' . '/app/Thumbnail.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\UserDetail' => __DIR__ . '/../..' . '/app/UserDetail.php',
+        'App\\VerifyUser' => __DIR__ . '/../..' . '/app/VerifyUser.php',
         'App\\Websosmed' => __DIR__ . '/../..' . '/app/Websosmed.php',
         'AreaSeeder' => __DIR__ . '/../..' . '/database/seeds/AreaSeeder.php',
         'BackgroundPivotSeeder' => __DIR__ . '/../..' . '/database/seeds/BackgroundPivotSeeder.php',
@@ -1596,6 +1589,7 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'Illuminate\\Foundation\\Testing\\WithoutEvents' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/WithoutEvents.php',
         'Illuminate\\Foundation\\Testing\\WithoutMiddleware' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/WithoutMiddleware.php',
         'Illuminate\\Foundation\\Validation\\ValidatesRequests' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php',
+        'Illuminate\\Hashing\\AbstractHasher' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Hashing/AbstractHasher.php',
         'Illuminate\\Hashing\\ArgonHasher' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Hashing/ArgonHasher.php',
         'Illuminate\\Hashing\\BcryptHasher' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Hashing/BcryptHasher.php',
         'Illuminate\\Hashing\\HashManager' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Hashing/HashManager.php',
@@ -2071,22 +2065,6 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
-        'Jrean\\UserVerification\\Events\\UserVerified' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Events/UserVerified.php',
-        'Jrean\\UserVerification\\Events\\VerificationEmailSent' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Events/VerificationEmailSent.php',
-        'Jrean\\UserVerification\\Exceptions\\ModelNotCompliantException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/ModelNotCompliantException.php',
-        'Jrean\\UserVerification\\Exceptions\\TokenMismatchException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/TokenMismatchException.php',
-        'Jrean\\UserVerification\\Exceptions\\UserHasNoEmailException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserHasNoEmailException.php',
-        'Jrean\\UserVerification\\Exceptions\\UserIsVerifiedException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserIsVerifiedException.php',
-        'Jrean\\UserVerification\\Exceptions\\UserNotFoundException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserNotFoundException.php',
-        'Jrean\\UserVerification\\Exceptions\\UserNotVerifiedException' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Exceptions/UserNotVerifiedException.php',
-        'Jrean\\UserVerification\\Facades\\UserVerification' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Facades/UserVerification.php',
-        'Jrean\\UserVerification\\Mail\\VerificationTokenGenerated' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Mail/VerificationTokenGenerated.php',
-        'Jrean\\UserVerification\\Middleware\\IsVerified' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Middleware/IsVerified.php',
-        'Jrean\\UserVerification\\Traits\\RedirectsUsers' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Traits/RedirectsUsers.php',
-        'Jrean\\UserVerification\\Traits\\UserVerification' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Traits/UserVerification.php',
-        'Jrean\\UserVerification\\Traits\\VerifiesUsers' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/Traits/VerifiesUsers.php',
-        'Jrean\\UserVerification\\UserVerification' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/UserVerification.php',
-        'Jrean\\UserVerification\\UserVerificationServiceProvider' => __DIR__ . '/..' . '/jrean/laravel-user-verification/src/UserVerificationServiceProvider.php',
         'LaratrustSeeder' => __DIR__ . '/../..' . '/database/seeds/LaratrustSeeder.php',
         'Laratrust\\Commands\\AddLaratrustUserTraitUseCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/AddLaratrustUserTraitUseCommand.php',
         'Laratrust\\Commands\\MakePermissionCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/MakePermissionCommand.php',
@@ -3174,6 +3152,7 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'Psy\\Command\\SudoCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/SudoCommand.php',
         'Psy\\Command\\ThrowUpCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/ThrowUpCommand.php',
         'Psy\\Command\\TimeitCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/TimeitCommand.php',
+        'Psy\\Command\\TimeitCommand\\TimeitVisitor' => __DIR__ . '/..' . '/psy/psysh/src/Command/TimeitCommand/TimeitVisitor.php',
         'Psy\\Command\\TraceCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/TraceCommand.php',
         'Psy\\Command\\WhereamiCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/WhereamiCommand.php',
         'Psy\\Command\\WtfCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/WtfCommand.php',

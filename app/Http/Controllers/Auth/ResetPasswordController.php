@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Setting;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
@@ -48,7 +51,6 @@ class ResetPasswordController extends Controller
 
         return route('mainpage.index'); 
     }
-
     /**
      * Create a new controller instance.
      *
@@ -57,5 +59,14 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        $setting = Setting::first();
+
+        return view('frontend.theme.medicio.other_pages.auth.password.reset', compact('setting'))->with(
+            ['token' => $token, 'email' => $request->email]
+        );
     }
 }

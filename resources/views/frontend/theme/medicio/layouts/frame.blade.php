@@ -6,15 +6,20 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-md-6">
-              <p class="bold text-left">{{ Auth::check() ? 'Hi, ' . ucfirst(Auth::user()->name) : $setting->tagline }}</p>
+              <p class="bold text-left">
+                @if(!Auth::check())
+                  {{ $setting->tagline }}
+                @else
+                  {{ 'Hi, ' . ucfirst(Auth::user()->name) }}
+                @endif
+              </p>
             </div>
             <div class="col-sm-6 col-md-6">
               <p class="bold text-right">
                 @if(!Auth::check())
                   <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#loginmodal">Log in</a>
                   <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#registermodal">Sign Up</a>
-                @endif
-                @if(Auth::check())
+                @else
                   @if(Auth::user()->hasRole('superadministrator'))
                     <a href="{{ route('manage.index') }}" class="btn btn-sm btn-primary">Dashboard</a>  
                   @elseif(Auth::user()->hasRole('customer'))

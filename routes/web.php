@@ -39,6 +39,8 @@ Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser')->name('user.verify');
+
 
 //####################//
 //######MANAGE########//

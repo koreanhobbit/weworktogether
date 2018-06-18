@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\User;
 
-class NewUserManualPassword extends Mailable
+class VerifyReg extends Mailable
 {
     use Queueable, SerializesModels;
     public $user;
@@ -29,6 +29,6 @@ class NewUserManualPassword extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.user.newusermanualpass');
+        return $this->subject('Email Verification')->markdown('emails.user.verifyreg');
     }
 }

@@ -65,9 +65,9 @@
               <div class="form-group {{ $errors->has('registerrole') ? 'has-error' : '' }}">
                 <label for="registerrole">Role</label>
                 <select name="registerrole" id="registerrole" class="form-control">
-                  <option value="7" selected>Customer</option>
-                  <option value="6">Guide</option>
-                  <option value="5">Provider</option>
+                  <option value="7" {{ old('registerrole') == 7 ? 'selected' : '' }}>Customer</option>
+                  <option value="6" {{ old('registerrole') == 6 ? 'selected' : '' }}>Guide</option>
+                  <option value="5" {{ old('registerrole') == 5 ? 'selected' : '' }}>Provider</option>
                 </select>
                 @if($errors->has('registerrole'))
                   <div class="help-block">

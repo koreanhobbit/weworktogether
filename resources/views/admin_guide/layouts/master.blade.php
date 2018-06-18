@@ -35,6 +35,5 @@
 <script src="{{ asset("js/vendor/dropzone.js") }}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.7/metisMenu.min.js"></script>
 @yield('script')
-@include('frontend.messenger.tawkto')
 </body>
 </html>

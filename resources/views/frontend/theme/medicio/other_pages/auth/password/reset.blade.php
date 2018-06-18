@@ -7,15 +7,21 @@
             <div class="container marginbot-60">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-						<form action="{{ route('password.request') }}" method="post">
+						<form action="{{ route('password.request') }}" method="POST">
 				          {{ csrf_field() }}
+				          <input type="hidden" name="token" value="{{ $token }}">
+
 				          <div class="row">
 				            <div class="col-sm-12">
 				            	<div class="text-center">
 				            		<h1>Reset Password</h1>
 				            	</div>
 				            	<br>
-
+								@if (session('status'))
+                        			<div class="alert alert-success">
+                            			{{ session('status') }}
+                        			</div>
+                    			@endif
 					            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 					                <label for="email">Email Address</label>
 					                <input type="email" name="email" id="email" class="form-control" value="{{ $email or old('email') }}" required autofocus>

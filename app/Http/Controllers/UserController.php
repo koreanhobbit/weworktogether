@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use App\VerifyUser;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
-use App\Mail\NewUserWelcome;
+use App\Mail\NewUserAuto;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\NewUserManualPassword;
+
 
 
 class UserController extends Controller
@@ -19,6 +21,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $users = User::orderBy('id', 'asc')->paginate(5);
@@ -62,25 +65,24 @@ class UserController extends Controller
         if($request->autogeneratepassword === 1) {
             $random = uniqid();
             $user->password = Hash::make($random);
-            $fp = $random;
         }
         else {
             $user->password = Hash::make($request->password);
         }
         
         $user->save();
-        if(!empty($request->role)) 
-        {
-            $user->roles()->attach($request->role, ['user_type' => 'App\User']);
-        }
+        //add role
+        $user->roles()->attach($request->role, ['user_type' => 'App\User']);
 
-        if($request->autogeneratepassword === 1) {
-            Mail::to($user->email)->queue(new NewUserWelcome($user, $fp));
-        }
+        //create verify for the user
+        $verifyUser = VerifyUser::create([
+            'user_id' => $user->id,
+            'token' => Password::getRepository()->createNewToken(),
+        ]);
+        
+        //send mail
+        Mail::to($user->email)->queue(new NewUserAuto($user));
 
-        else {
-            Mail::to($user->email)->queue(new NewUserManualPassword($user));
-        }
         $request->session()->flash('flashmessage', 'User ' . $user->name . ' is created!');
         return redirect()->route('user.index');
     }

@@ -6,6 +6,11 @@
         <h4 class="modal-title">Login</h4>
       </div>
       <div class="modal-body">
+        @if(session()->has('login'))
+          <div class="alert alert-info">
+            {{ session('login') }}
+          </div>
+        @endif
         <form action="{{ route('login.attempt') }}" method="post">
           {{ csrf_field() }}
           <div class="row">
