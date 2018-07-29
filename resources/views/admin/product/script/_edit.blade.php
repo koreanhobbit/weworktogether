@@ -1,8 +1,6 @@
 {{-- tinymce javascript --}}
 <script src="{{ asset('js/vendor/tinymce/jquery.tinymce.min.js') }}"></script>
 <script src="{{ asset('js/vendor/tinymce/tinymce.min.js') }}"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script>
     Dropzone.autoDiscover = false;
 </script>
@@ -323,7 +321,9 @@
             plugins: 'autosave image link lists preview',
             branding: false,
             min_height: 300,
-            menubar:false,
+            menubar:true,
+            relative_urls : false,
+            remove_script_host : false,
             custom_ui_selector: '.imageReferencesBtn',
             mobile: {
                 theme: 'mobile',
@@ -544,70 +544,6 @@
                     $('.loaderHook').removeClass('loader');
                 },
             });
-        }
-
-		//if there is change in sale
-        $('#sale_checkbox').change(function() {
-            $('.saleContainer').toggleClass('hidden');
-            if($('.saleContainer').hasClass('hidden')) {
-                $('#startDate').val('');
-                $('#endDate').val('');
-                $('#sale_price').val('');
-
-                //remove required for the price
-                $('#sale_price').prop('required', false);
-
-                //set the is_sale value
-                $('#is_sale').val('0');
-            }
-
-            if(!$('.saleContainer').hasClass('hidden')) {
-
-                //add required for the price
-                $('#sale_price').prop('required', true);
-
-                //show startdate picker
-                $('#startDate').datepicker({
-                    autoclose: true,
-                });
-
-                //show enddate datepicker
-                $('#endDate').datepicker({
-                    autoclose: true,
-                });
-
-                //set the is_sale value 
-                $('#is_sale').val('1');
-            }
-        });
-
-        //check if sale has error
-        if($('.saleContainer').find('.form-group').hasClass('has-error')) {
-            $('.saleContainer').removeClass('hidden');
-            $('#sale_checkbox').prop('checked', true);
-        }
-
-        //always make sure if the sale in appropriate condition
-        if(!$('.saleContainer').hasClass('hidden')) {
-            $('#sale_checkbox').prop('checked', true);
-
-            $('#is_sale').val('1');
-            //show startdate picker
-            $('#startDate').datepicker({
-                autoclose: true,
-            });
-
-            //show enddate datepicker
-            $('#endDate').datepicker({
-                autoclose: true,
-            });
-        }
-        if($('.saleContainer').hasClass('hidden')) {
-            $('#sale_checkbox').prop('checked', false);
-            $('#is_sale').val('0');
-            $('#startDate').val('');
-            $('#endDate').val('');
-            $('#sale_price').val('');
         }
 	});
 </script>

@@ -13,11 +13,11 @@
     "bootstrap": "^4.1.0",
     "bootstrap-sass": "^3.3.7",
     "chart.js": "^1.1.1",
-    "cross-env": "^5.1",
+    "cross-env": "^5.2.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "laravel-mix": "^2.0",
-    "metismenu": "^2.7.7",
+    "metismenu": "^2.7.9",
     "popper.js": "^1.12"
   },
   "dependencies": {}

@@ -1,6 +1,6 @@
 @extends('admin.layouts.navs')
 
-@section('page_heading', 'Products List')
+@section('page_heading', 'Projects List')
 
 @section('section')
 	<div class="col-sm-12">
@@ -9,7 +9,7 @@
 				<div class="pull-right">
 					<a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">
 						<i class="fa fa-shopping-bag"></i>
-						&nbsp;Add New Product
+						&nbsp;Add New Project
 					</a>
 				</div>
 			</div>
@@ -17,7 +17,7 @@
 		@if(count($products) < 1)
 			<div class="alert alert-info">
 				<div class="text-center">
-					<h1>There is no product</h1>
+					<h1>There is no project</h1>
 				</div>
 			</div>
 		@else
@@ -33,9 +33,9 @@
 											<th class="text-center">Image</th>
 											<th class="text-center">Name</th>
 											<th class="text-center">Summary</th>
-											<th class="text-center">Price</th>
-											<th class="text-center">Sale</th>
-											<th class="text-center">Published</th>
+											
+							
+											
 											<th class="text-center">Edit</th>
 											<th class="text-center">Delete</th>
 										</tr>

@@ -17,11 +17,7 @@ class CreateContactMessagesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->string('phone');
-            $table->unsignedInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services');
-            $table->date('arrival')->nullable();
-            $table->date('return')->nullable();
+            $table->string('subject');
             $table->text('message');
             $table->timestamps();
         });

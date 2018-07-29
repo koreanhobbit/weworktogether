@@ -32,7 +32,7 @@
 <script src="{{ asset("js/app.js") }}"></script>
 <script src="{{ asset("js/Chart.js") }}"></script>
 <script src="{{ asset("js/admin.js") }}"></script>
-<script src="{{ asset("js/vendor/dropzone.js") }}"></script>
+<script src="{{ asset("https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.0.1/min/dropzone.min.js") }}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.7/metisMenu.min.js"></script>
 @yield('script')
 </body>

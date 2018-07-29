@@ -29,31 +29,20 @@ class LoginController extends Controller
      */
     protected function redirectTo()
     {
-        $user = Auth::user();
-        if($user->hasRole('superadministrator')) {
-            return route('manage.index');
-        }
-        if($user->hasRole(['customer', 'provider'])) {
-            return route('mainpage.index');
-        }
-
-        if($user->hasRole('guide')) {
-            if(empty($user->detail)) {
-                return route('guide.profile.index', ['user' => $user->id, 'name' => $user->name]);
+        foreach(auth()->user()->roles as $role)
+        {
+            if($role->name == 'superadministrator' || $role->name == 'administrator') 
+            {
+                return route('manage.index');
             }
-
-            else {
-                return route('guide.dashboard.index', ['user' => $user->id, 'name' => $user->name]);
-            }
-            return route('mainpage.index');
         }
 
-        return route('mainpage.index'); 
+        return route('user.profile.index', ['user' => auth()->user()->id, 'name' => auth()->user()->name]); 
     }
 
     public function showLoginForm()
     {
-        return view('/');
+        return view('frontend.theme.butterfly.auth.login');
     } 
     /**
      * Create a new controller instance.

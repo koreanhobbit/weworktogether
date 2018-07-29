@@ -12,8 +12,8 @@ class ThemeSettingSeeder extends Seeder
     public function run()
     {
         DB::table('themesettings')->insert([
-        	'name' => 'medicio',
-            'path' => 'frontend/medicio/',
+        	'name' => 'butterfly',
+            'path' => 'frontend/butterfly/',
         	'created_at' => new \DateTime(),
         	'updated_at' => new \DateTime(),
         ]);

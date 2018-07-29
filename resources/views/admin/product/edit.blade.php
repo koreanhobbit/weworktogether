@@ -1,10 +1,6 @@
 @extends('admin.layouts.navs')
 
-@section('styles')
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
-@endsection
-
-@section('page_heading', 'Edit Product')
+@section('page_heading', 'Edit Project')
 
 @section('section')
 	<div class="col-sm-12">
@@ -40,13 +36,13 @@
 											</div>
 										@endif
 									</div>
-									<div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-										<label for="source">Price</label>
-										<input type="text" name="price" id="price" class="form-control" value="{{ $product->price }}">
-										@if($errors->has('price'))
+									<div class="form-group {{ $errors->has('company') ? 'has-error' : '' }}">
+										<label for="company">Company</label>
+										<input type="text" name="company" id="company" class="form-control" value="{{ $product->company }}" required>
+										@if($errors->has('company'))
 											<div class="help-block">
 												<span>
-													<strong>{{ $errors->first('price') }}</strong>
+													<strong>{{ $errors->first('company') }}</strong>
 												</span>
 											</div>
 										@endif
@@ -54,7 +50,7 @@
 									<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
 										<label for="description">Description</label>
 										<textarea name="description" id="description">
-											{{ $product->description }}
+											{!! $product->description !!}
 										</textarea>							
 										@if($errors->has('description'))
 											<div class="help-block">
@@ -190,67 +186,7 @@
 							@endcomponent
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							@component('admin.widgets.panel')
-								@slot('panelTitle1', 'Sale')
-								@slot('panelBody')
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="checkbox">
-												<label for="sale">
-													<input type="checkbox" name="sale_checkbox" id="sale_checkbox">
-													<input type="hidden" name="is_sale" id="is_sale">
-													Sale
-												</label>
-											</div>
-										</div>
-									</div>
-									<div class="saleContainer hidden">
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="form-group {{ $errors->has('sale_price') ? 'has-error' : '' }}">
-													<label for="source">Price</label>
-													<input type="text" name="sale_price" id="sale_price" class="form-control" value="{{ old('sale_price') }}">
-													@if($errors->has('sale_price'))
-														<div class="help-block">
-															<span>
-																<strong>{{ $errors->first('sale_price') }}</strong>
-															</span>
-														</div>
-													@endif
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-xs-6">
-												<div class="form-group">
-													<label for="startDate">Start Date:</label>
-													<div class="input-group date">
-													    <input type="text" class="form-control" id="startDate" name="startdate">
-													    <div class="input-group-addon">
-													        <span><i class="fa fa-calendar"></i></span>
-													    </div>
-													</div>
-												</div>
-											</div>
-											<div class="col-xs-6">
-												<div class="form-group">
-													<label for="endDate">End Date:</label>
-													<div class="input-group date">
-													    <input type="text" class="form-control" id="endDate" name="enddate">
-													    <div class="input-group-addon">
-													        <span><i class="fa fa-calendar"></i></span>
-													    </div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								@endslot
-							@endcomponent
-						</div>
-					</div>
+					
 					<div class="row">
 						<div class="col-sm-12">
 							@component('admin.widgets.panel')
@@ -273,7 +209,7 @@
 						 		<a href="{{ route('product.index') }}">
 						 			<i class="fa fa-arrow-left"></i>
 						 			&nbsp;
-						 			<span>go back to product list</span>
+						 			<span>go back to project list</span>
 						 		</a>
 						 	</div>
 						 </div>

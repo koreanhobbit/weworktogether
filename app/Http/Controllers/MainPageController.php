@@ -3,10 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Setting;
-use App\Country;
-use App\Service;
-use App\Testimony;
 
 class MainPageController extends Controller
 {
@@ -17,44 +13,25 @@ class MainPageController extends Controller
      */
     public function index(Request $request)
     {
+        //gather the user
+        $users = \App\User::orderBy('id', 'asc')->with('detail')->get();
 
-        //load area in fast booking
-        if($request->ajax() && $request->title == 'loadArea') {
-            $areas = Country::find($request->countryId)->areas;
-            
-            return view('frontend.theme.medicio.main_page.partials._area', compact('areas'))->render();
-        } 
+        //check for the showed user
+        $showedUsers = \App\UserDetail::where('display', 1)->get();
 
-        //special for the service selection
-        if(!empty(Service::getSpecial())) {
-            $special = Service::getSpecial();
-        }
-        else{
-            $special = Service::getOneService();
-        }
+        //put the setting credentials
+        $setting = \App\Setting::with(['themesetting', 'themesetting.menus', 'partners', 'contacts'])->first();
 
-        //testimony
-        $testimonies = Testimony::where('is_display', '1')->get();
+        //put the testimony credentials
+        $testimonies = \App\Testimony::orderBy('created_at', 'desc')->get();
 
-        $pricings = Service::where('highlight', 1)->take(3)->get();
+        //put the projects list for portfolio
+        $projects = \App\Product::orderBy('id', 'desc')->get();
 
-        $services = Service::orderBy('name', 'asc')->get();
-        $oriCountries = Country::where('type', 0)->orderBy('id', 'asc')->get();
-        $countries = Country::where('type', 1)->orderBy('id', 'asc')->get(); 
-        $setting = Setting::with(['themesetting', 'themesetting.menus', 'partners'])->first();
+        //put the project categories list
+        $categories = \App\Product::with('category')->select('product_category_id')->distinct()->get();
 
-        //themesetting
-        foreach($setting->themesetting->menus as $menu) {
-            if($menu->name == 'testimony') {
-                $testimonyController = $menu->show;
-            }
-
-            if($menu->name == 'partner') {
-                $partnerController = $menu->show;
-            }
-        }
-
-        return view('frontend.theme.medicio.main_page.index', compact('setting', 'countries', 'services', 'pricings', 'special', 'oriCountries', 'testimonies', 'testimonyController', 'partnerController'));
+        return view('frontend.theme.butterfly.mainpage.index', compact('users', 'setting', 'showedUsers', 'testimonies', 'projects', 'categories'));
     }
 
     /**

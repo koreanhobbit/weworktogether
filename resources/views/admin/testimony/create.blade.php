@@ -4,8 +4,17 @@
 
 @section('section')
 	<div class="col-sm-12">
-		<form action="{{ route('testimony.store', ['user' => $user->id]) }}" method="post">
+		<form action="{{ route('testimony.store') }}" method="post">
 			{{ csrf_field() }}
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="pull-right">
+						<div class="form-group">
+							<button class="btn btn-primary btn-sm">Create</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-sm-8">
 					@component('admin.widgets.panel')
@@ -14,8 +23,22 @@
 						@slot('panelBody')
 							<div class="row">
 								<div class="col-sm-12">
-									<div class="form group {{ $errors->has('testimony') ? 'has-error' : '' }}">
-										<label for="testimony">Testimony from <span>{{ ucfirst($user->name) }}</span></label>
+									<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+										<label for="name">Name</label>
+										<div class="input-group">
+											<input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control">
+											<div class="input-group-addon"><i class="fa fa-user"></i></div>
+										</div>
+									</div>
+									<div class="form-group {{ $errors->has('company') ? 'has-error' : '' }}">
+										<label for="company">Company</label>
+										<div class="input-group">
+											<input type="text" name="company" id="company" value="{{ old('company') }}" class="form-control">
+											<div class="input-group-addon"><i class="fa fa-building"></i></div>
+										</div>
+									</div>
+									<div class="form-group {{ $errors->has('testimony') ? 'has-error' : '' }}">
+										<label for="testimony">Description</span></label>
 										<div class="input-group">
 											<textarea name="testimony" id="testimony" rows="5" class="form-control" required>{{ old('testimony') }}</textarea>
 											<div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
@@ -29,34 +52,73 @@
 				<div class="col-sm-4">
 					@component('admin.widgets.panel')
 						@slot('class', 'info')
-						@slot('panelTitle', 'Rating')
+						@slot('panelTitle', 'Image')
 						@slot('panelBody')
-							<div class="row">
+							<div class="row addImageBtn">
 								<div class="col-sm-12">
 									<div class="text-center">
-										<span class="fa fa-star fa-3x star" data-id="1"></span>
-										<span class="fa fa-star fa-3x star" data-id="2"></span>
-										<span class="fa fa-star fa-3x star" data-id="3"></span>
-										<span class="fa fa-star fa-3x star" data-id="4"></span>
-										<span class="fa fa-star fa-3x star" data-id="5"></span>
-										<input type="hidden" name="rating" id="rating" value="5">
+										<a href="javascript:" class="btn btn-sm btn-info" data-toggle="modal" data-target="#imageModal">Add Image</a>
 									</div>
 								</div>
 							</div>
+							<div class="addImageContainer hidden">
+								<a class="close btn-warning removeImageBtn">
+									<i class="fa fa-close"></i>
+								</a>
+								<div class="thumbnail">
+									<img src="" alt="" class="img-rounded">
+								</div>
+							</div>
+							<input type="hidden" name="image" id="image" value="1">
 						@endslot
 					@endcomponent
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="pull-right">
-						<div class="form-group">
-							<button class="btn btn-primary">Create</button>
+		</form>
+	</div>
+	
+	{{-- modal for image --}}
+	<div class="modal fade-in full-modal" id="imageModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title">Add Image</h4>
+	      </div>
+	      <div class="modal-body">
+				@component('admin.widgets.panel')
+				@slot('class', 'default')
+				@slot('panelTitle1', 'Choose Image')
+				@slot('panelBody')
+					<ul class="nav nav-tabs" style="margin-bottom: 20px;">
+						<li class="active" id="imageList"><a href="#imageTab" data-toggle="tab">Image</a></li>
+						<li class="" id="uploadImageList"><a href="#uploadImageTab" data-toggle="tab">Upload Image</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade active in" id="imageTab">
+							@include('admin.testimony.partial._image')
+						</div>
+						<div class="tab-pane fade" id="uploadImageTab">
+							
+							<form action="{{ route('image.store') }}" class="dropzone" id="addNewImageDz" data-url="{{ route('testimony.create') }}">
+								{{ csrf_field() }}
+								<div class="fallback">
+									<input type="file" name="image" multiple>
+								</div>
+								<div class="dz-message">
+									<h3 class="text-center">
+										Drop your images inside the box or click to add images 
+									</h3>
+								</div>
+							</form>
+								
 						</div>
 					</div>
-				</div>
-			</div>
-		</form>
+				@endslot
+			@endcomponent
+	      </div>
+	    </div>
+	  </div>
 	</div>
 @endsection
 @section('script')

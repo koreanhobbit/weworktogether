@@ -10,17 +10,16 @@ class Testimony extends Model
 
     protected $guarded = [];
 
-    public static function addNewTestimony($request, $user)
+    public static function addNewTestimony($request)
     {
     	return static::create([
     		'testimony' => $request->testimony,
-    		'user_id' => $user->id,
-            'rating' => $request->rating,
+    		'name' => $request->name,
+            'company' => $request->company, 
     	]);
     }
 
-    public function user()
-    {
-    	return $this->belongsTo('App\User');
+    public function images() {
+        return $this->morphToMany('App\Image', 'imageable')->withPivot('option', 'info')->withTimestamps();
     }
 }

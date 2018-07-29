@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\UserDetail;
 use App\Role;
 use App\VerifyUser;
 use App\Mail\VerifyReg;
@@ -39,23 +40,15 @@ class RegisterController extends Controller
 
     protected function redirectTo() 
     {
-        $user = Auth::user();
-        //if role is customer
-        if($user->hasRole('customer')) {
-            return route('mainpage.index');
+        foreach(auth()->user()->roles as $role)
+        {
+            if($role->name == 'superadministrator') 
+            {
+                return route('manage.index');
+            }
         }
 
-        //if role is guide
-        if($user->hasRole('guide')) {
-            return route('guide.profile.index', ['user' => $user->id, 'name' => $user->name]);
-        }
-
-        //if role is provider
-        if($user->hasRole('provider')) {
-            return route('manage.index');
-        }
-
-        return route('mainpage.index');
+        return route('user.profile.index', ['user' => auth()->user()->id, 'name' => auth()->user()->name]);
     }
 
     /**
@@ -70,7 +63,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('/');
+        return view('frontend.theme.butterfly.auth.register');
     }
 
     /**
@@ -82,12 +75,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'register-name' => 'required|string|max:255',
-            'register-email' => 'required|string|email|max:255|unique:users,email',
-            'autogeneratepassword' =>'nullable',
-            'registerpassword' => 'required_without:autogeneratepassword|string|min:6|confirmed',
-            'registerrole' => 'required|integer|between:5,7',
-            'g-recaptcha-response' => 'required|captcha',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'password' => 'required_without:autogeneratepassword|string|min:6|confirmed',
+            'role' => 'required|integer',
+            // 'g-recaptcha-response' => 'required|captcha',
         ]);
     }
 
@@ -100,9 +92,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'name' => $data['register-name'],
-            'email' => $data['register-email'],
-            'password' => bcrypt($data['registerpassword']),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
         ]);
 
         //create verify for the user
@@ -111,11 +103,21 @@ class RegisterController extends Controller
             'token' => Password::getRepository()->createNewToken(),
         ]);
 
+        //create user detail
+        $userDetail = UserDetail::create([
+            'user_id' => $user->id,
+        ]);
+
+        //attach noimage for the new user
+        $image = \App\Image::first();
+        $user->images()->attach($image, ['option' => '1', 'info' => 'Profile Picture']);
+
         //add role 
-        $role = Role::find($data['registerrole']);
+        $role = Role::find($data['role']);
         $user->attachRole($role);
 
         Mail::to($user->email)->queue(new VerifyReg($user));
+        
         return $user;
     }
 
@@ -138,15 +140,15 @@ class RegisterController extends Controller
         }
         else
         {
-            return redirect()->route('mainpage.index')->with('login', $status); 
+            return redirect()->route('login')->with('login', $status); 
         }
 
-        return redirect()->route('mainpage.index')->with('login', $status);
+        return redirect()->route('login')->with('login', $status);
     }
 
     protected function registered(Request $request, $user)
     {
         $this->guard()->logout();
-        return redirect()->route('mainpage.index')->with('login', 'We sent you an activation code. Check your email and check on the link to verify.');
+        return redirect()->route('login')->with('login', 'We sent you an activation code. Check your email and check on the link to verify.');
     }
 }

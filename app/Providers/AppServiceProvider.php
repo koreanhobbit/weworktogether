@@ -27,28 +27,17 @@ class AppServiceProvider extends ServiceProvider
 
 
         //######################################//
-        //#########FRONT END Medicio############//
+        //#########FRONT END Butterfly############//
         //######################################//
-        //setting for frontend medicio
-        view()->composer('frontend.theme.medicio.layouts.master', function($setting) {
-            $setting->with('setting', \App\Setting::first());
-        });
-
-        view()->composer('frontend.theme.medicio.main_page.sections.pricing', function($currencies) {
-            $currencies->with('currencies', \App\Currency::get());
-        });
-
-        //######################################//
-        //##########CUSTOMER BACKEND############//
-        //######################################//
-        view()->composer('admin_customer.layouts.nav', function($setting) {
+        //setting for frontend butterfly
+        view()->composer('frontend.theme.butterfly.layouts.master', function($setting) {
             $setting->with('setting', \App\Setting::first());
         });
 
         //######################################//
-        //#############GUIDE BACKEND############//
+        //##########USER     BACKEND############//
         //######################################//
-        view()->composer('admin_guide.layouts.nav', function($setting) {
+        view()->composer('admin_user.layouts.nav', function($setting) {
             $setting->with('setting', \App\Setting::first());
         });
     }

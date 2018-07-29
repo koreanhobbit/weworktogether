@@ -25,11 +25,11 @@ return [
             'images' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'guide' => [
+        'supporter' => [
             'images' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'customer' => [
+        'subscriber' => [
             'images' => 'c,r,u,d',
             'profile' => 'r,u'
         ],

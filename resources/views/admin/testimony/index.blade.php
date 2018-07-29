@@ -6,6 +6,13 @@
 	<div class="col-sm-12">
 		<div class="row">
 			<div class="col-sm-12">
+				<div class="pull-right">
+					<a href="{{ route('testimony.create') }}" class="btn btn-primary btn-sm m-b-20">Add Testimony</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
 				<div class="alert alert-info {{ count($testimonies) > 0 ? 'hidden' : '' }}">
 					<div class="text-center">
 						<h1>There is no displayed testimonial</h1>
@@ -19,10 +26,9 @@
 								<table class="table table-hover table-striped">
 									<thead>
 										<tr>
-											<td class="text-center">User Name</td>
-											<td class="text-center">Rating</td>
+											<td class="text-center">Name</td>
+											<td class="text-center">Company</td>
 											<td class="text-center">Description</td>
-											<td class="text-center">In Display</td>
 											<td class="text-center">Edit</td>
 											<td class="text-center">Delete</td>
 										</tr>
@@ -30,19 +36,11 @@
 									<tbody>
 										@foreach($testimonies as $testimony)
 											<tr>
-												<td class="text-center">{{ $testimony->user->name }}</td>
+												<td class="text-center">{{ $testimony->name }}</td>
 												<td class="text-center">
-													@for($i=1; $i <= $testimony->rating; $i++)
-														<span class="fa fa-star checked"></span>
-													@endfor
-													@for($i=1; $i <= 5-$testimony->rating; $i++)
-										              <span class="fa fa-star"></span>
-										            @endfor
+													{{ $testimony->company }}
 												</td>
 												<td class="text-center">{{ $testimony->testimony }}</td>
-												<td class="text-center">
-													<input type="checkbox" {{ $testimony->is_display == 1 ? 'checked' : '' }} data-url="{{ route('testimony.update', ['testimony' => $testimony->id]) }}" data-value="{{ $testimony->is_display }}" class="test_check">
-												</td>
 												<td class="text-center">
 													<a href="{{ route('testimony.edit', ['testimony' => $testimony->id]) }}" class="btn btn-sm btn-info">
 														<span>

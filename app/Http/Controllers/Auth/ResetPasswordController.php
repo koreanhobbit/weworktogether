@@ -30,25 +30,6 @@ class ResetPasswordController extends Controller
      */
     protected function redirectTo()
     {
-        $user = Auth::user();
-        if($user->hasRole('superadministrator')) {
-            return route('manage.index');
-        }
-        if($user->hasRole(['customer', 'provider'])) {
-            return route('mainpage.index');
-        }
-
-        if($user->hasRole('guide')) {
-            if(empty($user->detail)) {
-                return route('guide.profile.index', ['user' => $user->id, 'name' => $user->name]);
-            }
-
-            else {
-                return route('guide.dashboard.index', ['user' => $user->id, 'name' => $user->name]);
-            }
-            return route('mainpage.index');
-        }
-
         return route('mainpage.index'); 
     }
     /**
@@ -65,7 +46,7 @@ class ResetPasswordController extends Controller
     {
         $setting = Setting::first();
 
-        return view('frontend.theme.medicio.other_pages.auth.password.reset', compact('setting'))->with(
+        return view('frontend.theme.butterfly.auth.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

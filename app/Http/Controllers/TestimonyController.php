@@ -15,85 +15,63 @@ class TestimonyController extends Controller
     	return view('admin.testimony.index', compact('testimonies'));
     }
 
-    public function show()
+    public function create() 
     {
-        $testimonies = Testimony::where('is_display', '=' ,1)->orderBy('is_display', 'asc')->paginate(15);
-        return view('admin.testimony.displayed', compact('testimonies'));
+        $images = \App\Image::where('id', '<>', 1)->paginate(12);
+        return view('admin.testimony.create', compact('images'));
     }
 
-    public function manage(Request $request)
-    {
-        if($request->ajax() && $request->title == 'userpage') {
-            $users = Role::find($request->role)->users()->with('testimonies')->paginate(15, ['*'], 'userpage');
-            return view('admin.testimony.partial._manage', compact('users'))->render();
-        }
-
-    	if($request->ajax() && $request->title == 'reloadUsers') {
-			$users = Role::find($request->role)->users()->with('testimonies')->paginate(15, ['*'], 'userpage');  
-			return view('admin.testimony.partial._manage', compact('users'))->render();
-    	}
-
-    	$roles = Role::orderBy('id', 'desc')->get();
-    	return view('admin.testimony.manage', compact('roles'));
-    }
-
-    public function create(User $user) 
-    {
-        return view('admin.testimony.create', compact('user'));
-    }
-
-    public function store(Request $request, User $user)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'testimony' => 'required|string',
-            'rating' => 'required|integer',
+            'name' => 'required|string',
+            'company' => 'required|string',
+            'image' => 'required|integer',
         ]);
 
-        $testimony = new Testimony;
+        $testimony = \App\Testimony::addNewTestimony($request);
 
-        $testimony->addNewTestimony($request, $user);
+        $image = \App\Image::find($request->image);
+
+        $testimony->images()->attach($image, ['option' => 1, 'info' => 'Profile Picture']);
 
         return redirect()->route('testimony.index')->with('flashmessage', 'Testimony was successfully added!');
     }
 
     public function edit(Testimony $testimony)
     {
-        return view('admin.testimony.edit', compact('testimony'));
+        $images = \App\Image::where('id', '<>', 1)->paginate(12);
+        return view('admin.testimony.edit', compact('testimony', 'images'));
     }
 
     public function update(Request $request, Testimony $testimony)
     {
-        if($request->ajax() && $request->title == 'changeDisplay') {
-            if($request->value == 0) {
-                $testimony->is_display = 1;
-                $testimony->save();
-            }
-
-            if($request->value == 1) {
-                $testimony->is_display = 0;
-                $testimony->save();
-            } 
-
-            return $testimony;
-        }
-
         $this->validate($request, [
             'testimony' => 'required|string',
-            'rating' => 'required|integer',
+            'name' => 'required|string',
+            'company' => 'required|string',
+            'image' => 'required|integer',
         ]);
 
+        //save all updates
         $testimony->testimony = $request->testimony;
-        $testimony->rating = $request->rating;
+        $testimony->name = $request->name;
+        $testimony->company = $request->company;
         $testimony->save();
+
+        //remove attached image
+        $testimony->images()->detach();
+
+        //add image
+        $image = \App\Image::find($request->image);
+        $testimony->images()->attach($image, ['option' => 1, 'info' => 'Profile Image']);
 
         return redirect()->route('testimony.index')->with('flashmessage', 'Testimony was succesfully edited!');
     }
 
     public function destroy(Testimony $testimony)
     {
-        if($testimony->is_display == 1) {
-            return redirect()->route('testimony.index')->with('flashmessage', 'Testimony is on display. It cannot be deleted!');
-        }
         $testimony->delete();
         return redirect()->route('testimony.index')->with('flashmessage', 'Testimony was successfully deleted!'); 
     }

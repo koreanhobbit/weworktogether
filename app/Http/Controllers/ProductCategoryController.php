@@ -14,7 +14,9 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        //
+
+        $productcategories = \App\ProductCategory::orderBy('id', 'asc')->paginate(10);
+        return view('admin.productcategory.index', compact('productcategories'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.productcategory.create');
     }
 
     /**
@@ -35,7 +37,14 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+            'slug' => 'required|string',
+        ]);
+
+        $productcategory = \App\ProductCategory::addNewProductCategory($request);
+
+        return redirect()->route('productcategory.index')->with('flashmessage', 'Product was successfully created!'); 
     }
 
     /**
@@ -44,7 +53,7 @@ class ProductCategoryController extends Controller
      * @param  \App\ProductCategory  $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductCategory $productCategory)
+    public function show(ProductCategory $productcategory)
     {
         //
     }
@@ -55,9 +64,9 @@ class ProductCategoryController extends Controller
      * @param  \App\ProductCategory  $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductCategory $productCategory)
+    public function edit(ProductCategory $productcategory)
     {
-        //
+        return view('admin.productcategory.edit', compact('productcategory'));
     }
 
     /**
@@ -67,9 +76,18 @@ class ProductCategoryController extends Controller
      * @param  \App\ProductCategory  $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductCategory $productCategory)
+    public function update(Request $request, ProductCategory $productcategory)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+            'slug' => 'required|string',
+        ]);
+
+        $productcategory->name = $request->name;
+        $productcategory->slug = $request->slug;
+        $productcategory->save();
+
+        return redirect()->route('productcategory.index')->with('flashmessage', 'Product was successfully created!'); 
     }
 
     /**
@@ -78,7 +96,7 @@ class ProductCategoryController extends Controller
      * @param  \App\ProductCategory  $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductCategory $productCategory)
+    public function destroy(ProductCategory $productcategory)
     {
         //
     }

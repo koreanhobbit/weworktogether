@@ -18,15 +18,9 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->decimal('old_price', 65, 0)->nullable();
-            $table->decimal('price', 65, 0);
-            $table->boolean('is_sale')->default(0);
-            $table->decimal('sale_price',65 , 0)->nullable();
-            $table->dateTime('start_sale')->nullable();
-            $table->dateTime('end_sale')->nullable();
+            $table->string('company')->nullable();
             $table->text('description');
             $table->text('summary');
-            $table->boolean('is_published')->default(0);
             $table->integer('product_category_id')->unsigned()->default(1);
             $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->timestamps();

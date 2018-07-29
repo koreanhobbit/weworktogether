@@ -27,16 +27,16 @@
 									<table class="table-striped table-hover table">
 										<thead>
 											<tr>
-												<th class="col-md-3 text-center">
-													Image
+												<th class="col text-center">
+													#
 												</th>
-												<th class="col-md-3 text-center">
+												<th class="col-md-4 text-center">
 													Name
 												</th>
-												<th class="col-md-3 text-center">
+												<th class="col-md-4 text-center">
 													Email
 												</th>
-												<th class="col-md-2 text-center">
+												<th class="col-md-4 text-center">
 													Role
 												</th>
 												<th class="col text-center">
@@ -48,10 +48,10 @@
 											</tr>
 										</thead>
 										<tbody>
-											@foreach($users as $user)
+											@foreach($users as $key => $user)
 												<tr>
 													<td class="text-center">
-														Image 1
+														{{ $users->firstItem() + $key }}
 													</td>
 													<td class="text-center">
 														<a href="{{ route('user.show', ['user' => $user->id]) }}">

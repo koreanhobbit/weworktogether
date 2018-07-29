@@ -15,7 +15,6 @@ class ImageController extends Controller
 
     public function __construct()
     {
-        $this->middleware('role:customer|superadministrator')->only(['store', 'destroy']);
         $this->middleware('role:superadministrator')->except(['store', 'destroy']);
     }
     /**

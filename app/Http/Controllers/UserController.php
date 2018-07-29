@@ -79,8 +79,17 @@ class UserController extends Controller
             'user_id' => $user->id,
             'token' => Password::getRepository()->createNewToken(),
         ]);
+
+        //create user detail
+        $userDetail = \App\UserDetail::create([
+            'user_id' => $user->id,
+        ]);
+
+        //attach noimage for the new user
+        $image = \App\Image::first();
+        $user->images()->attach($image, ['option' => '1', 'info' => 'Profile Picture']);
         
-        //send mail
+        //call event new user mail
         Mail::to($user->email)->queue(new NewUserAuto($user));
 
         $request->session()->flash('flashmessage', 'User ' . $user->name . ' is created!');
@@ -122,32 +131,50 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => ['required', 'string', 'min:2', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'current_password' => ['required', 'min:8'],
             'role' => ['required']
         ]);
 
-        if($request->inputchangepassword === true) {
+        if($request->inputchangepassword == 'true') {
             $this->validate($request, [
                 'password' => ['required', 'min:8'],
                 'password_confirmation' => ['required_with:password', 'same:password']
             ]);
         }
 
+        //detach the roles
         $user->roles()->detach();
 
+        //set the name and email
         $user->name = $request->name;
         $user->email = $request->email;
 
-        if($request->inputchangepassword == true) {
+        //if change password is true set the new password
+        if($request->inputchangepassword == 'true') {
             $user->password = Hash::make($request->password);
         }
 
+        //save the new credentials
         $user->save();
 
+        //save the roles
         if(!empty($request->role)) 
         {
             $user->roles()->attach($request->role, ['user_type' => 'App\User']);
         }
+
+        //check if there is no profile image add no image
+        if(empty($user->images()->wherePivot('option', 1)->first())) {
+            $noimage = \App\Image::first();
+            $user->images()->attach($noimage, ['option' => '1', 'info' => 'Profile Image']);    
+        }
+
+        //change the display status according to request
+        $user->detail->display = $request->display;
+
+        //save the display status
+        $user->detail->save();
+
+        //send the flash message
         $request->session()->flash('flashmessage', 'User ' . $user->name . ' is updated!');
         return redirect()->route('user.index');
 

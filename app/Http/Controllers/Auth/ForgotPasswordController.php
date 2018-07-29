@@ -33,7 +33,6 @@ class ForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-        $setting = Setting::first();
-        return view('frontend.theme.medicio.other_pages.auth.password.email',compact('setting'));
+        return view('frontend.theme.butterfly.auth.email');
     }
 }

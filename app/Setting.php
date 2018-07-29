@@ -12,16 +12,6 @@ class Setting extends Model
         return $this->belongsTo('App\ThemeSetting');
     }
 
-    public function themeColor() 
-    {
-        return $this->belongsTo('App\Color', 'color_id');
-    }
-
-    public function themeBackground()
-    {
-        return $this->belongsTo('App\Background', 'background_id');
-    }
-
     public function images()
     {
     	return $this->morphToMany('App\Image', 'imageable')->withPivot('option','info')->withTimestamps();

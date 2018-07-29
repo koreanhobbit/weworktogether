@@ -20,18 +20,18 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs">
-					<li class="{{ count($errors->all()) < 1 ? 'active' : '' }} {{ $errors->has('name') || $errors->has('tagline') || $errors->has('about') || $errors->has('privacypolicy') ? 'active' : '' }}">
+					<li class="{{ count($errors->all()) < 1 ? 'active' : '' }} {{ $errors->has('name') || $errors->has('tagline') || $errors->has('about') ? 'active' : '' }}">
 						<a href="#generalsetting" data-toggle="tab">General Setting</a>
 					</li>
 					<li class="{{ $errors->has('phone') || $errors->has('email') || $errors->has('address') ? 'active' : '' }}">
 						<a href="#contactsetting" data-toggle="tab">Contact Setting</a>
 					</li>
-					<li><a href="#themesetting" data-toggle="tab">Theme Setting</a></li>
+				
 					<li><a href="#mainpagecontroller" data-toggle="tab">Main Page Controller</a></li>
 				</ul>
 				<div class="tab-content">
 					{{-- Content for general setting --}}
-					<div class="tab-pane fade {{ count($errors->all()) < 1 ? 'active in' : '' }} {{ $errors->has('name') || $errors->has('tagline') || $errors->has('about') || $errors->has('privacypolicy') ? 'active in' : '' }}" id="generalsetting">
+					<div class="tab-pane fade {{ count($errors->all()) < 1 ? 'active in' : '' }} {{ $errors->has('name') || $errors->has('tagline') || $errors->has('about') ? 'active in' : '' }}" id="generalsetting">
 						<div class="row">
 							<div class="col-sm-8">
 								@component('admin.widgets.panel')
@@ -67,18 +67,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="form-group">
-													<label for="currency">Currency</label>
-													<select class="form-control" name="currency" id="currency">
-														@foreach($currencies as $currency)
-											        		<option value="{{ $currency->id }}" {{ $setting->currency_id == $currency->id ? 'selected' : ''}}>{{ ucfirst($currency->name) }}</option>
-											        	@endforeach
-												    </select>
-												</div>
-											</div>
-										</div>
+										
 										<div class="row">
 											<div class="col-sm-12">
 												<div class="form-group {{ $errors->has('about') ? 'has-error' : '' }}">
@@ -94,22 +83,6 @@
 												</div> 
 											</div>
 										</div>
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="form-group {{ $errors->has('privacypolicy') ? 'has-error' : '' }}">
-													<label for="privacypolicy">Privacy Policy</label>
-													<textarea name="privacypolicy" id="privacypolicy" class="form-control" rows="10">{{ $setting->privacy_policy }}</textarea>
-													@if($errors->has('privacypolicy'))
-														<div class="help-block">
-															<span>
-																<strong>{{ $errors->first('privacypolicy') }}</strong>
-															</span>
-														</div>
-													@endif 
-												</div>
-											</div>
-										</div>
-										
 									@endslot
 								@endcomponent
 							</div>
@@ -149,7 +122,7 @@
 							</div>							
 						</div>
 					</div>
-					<div class="tab-pane fade {{ $errors->has('phone') || $errors->has('email') || $errors->has('address') ? 'active in' : '' }}" id="contactsetting">
+					<div class="tab-pane fade {{ $errors->has('phone') || $errors->has('email1') || $errors->has('email2') || $errors->has('address') ? 'active in' : '' }}" id="contactsetting">
 						<div class="row">
 							<div class="col-sm-12">
 								@component('admin.widgets.panel')
@@ -168,13 +141,25 @@
 														</div>
 													@endif 
 												</div>
-												<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-													<label for="email">Email Address</label>
-													<input type="email" class="form-control" id="email" name="email" value="{{ $setting->email }}" required>
-													@if($errors->has('email'))
+												<div class="form-group {{ $errors->has('email1') ? 'has-error' : '' }}">
+													<label for="email1">Email Address</label>
+													<input type="email1" class="form-control" id="email1" name="email1" value="{{ $setting->email1 }}" required>
+													@if($errors->has('email1'))
 														<div class="help-block">
 															<span>
-																<strong>{{ $errors->first('email') }}</strong>
+																<strong>{{ $errors->first('email1') }}</strong>
+															</span>
+														</div>
+													@endif 
+												</div>
+
+												<div class="form-group {{ $errors->has('email2') ? 'has-error' : '' }}">
+													<label for="email2">Email Address</label>
+													<input type="email2" class="form-control" id="email2" name="email2" value="{{ $setting->email2 }}" required>
+													@if($errors->has('email2'))
+														<div class="help-block">
+															<span>
+																<strong>{{ $errors->first('email2') }}</strong>
 															</span>
 														</div>
 													@endif 
@@ -199,13 +184,56 @@
 									@slot('panelBody')
 										<div class="row">
 											<div class="col-sm-12">
-												<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
-													<textarea name="address" id="address" class="form-control">{{ $setting->address }}</textarea>
-													@if($errors->has('address'))
+												<div class="form-group {{ $errors->has('branch1') ? 'has-error' : '' }}">
+													<label for="branch1">Branch</label>
+													<input type="text" name="branch1" id="branch1" value="{{ $setting->branch1 }}" class="form-control">
+													@if($errors->has('branch1'))
 														<div class="help-block">
 															<span>
 																<strong>
-																	{{ $errors->first('address') }}
+																	{{ $errors->first('branch1') }}
+																</strong>
+															</span>
+														</div>
+													@endif
+												</div>
+
+												<div class="form-group {{ $errors->has('address1') ? 'has-error' : '' }}">
+													<label for="address1">Address</label>
+													<textarea name="address1" id="address1" class="form-control">{{ $setting->address1 }}</textarea>
+													@if($errors->has('address1'))
+														<div class="help-block">
+															<span>
+																<strong>
+																	{{ $errors->first('address1') }}
+																</strong>
+															</span>
+														</div>
+													@endif
+												</div>
+
+												<div class="form-group {{ $errors->has('branch2') ? 'has-error' : '' }}">
+													<label for="branch2">Branch</label>
+													<input type="text" name="branch2" id="branch2" value="{{ $setting->branch2 }}" class="form-control">
+													@if($errors->has('branch2'))
+														<div class="help-block">
+															<span>
+																<strong>
+																	{{ $errors->first('branch2') }}
+																</strong>
+															</span>
+														</div>
+													@endif
+												</div>
+
+												<div class="form-group {{ $errors->has('address2') ? 'has-error' : '' }}">
+													<label for="address2">Address</label>
+													<textarea name="address2" id="address2" class="form-control">{{ $setting->address2 }}</textarea>
+													@if($errors->has('address2'))
+														<div class="help-block">
+															<span>
+																<strong>
+																	{{ $errors->first('address2') }}
 																</strong>
 															</span>
 														</div>
@@ -218,81 +246,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane fade" id="themesetting">
-						<div class="row">
-							<div class="col-sm-8">
-								@component('admin.widgets.panel')
-									@slot('panelTitle1', 'Background & Color')
-									@slot('panelBody')
-										<div class="form-group">
-											<label for="name">Theme Name</label>
-											<input type="text" value="Medicio" class="form-control" name="themesetting" id="themesetting" disabled>
-										</div>
-										<div class="form-group">
-											<label for="background">Background</label>
-											<select name="background" id="background" class="form-control">
-												@if(count($setting->themesetting->first()->backgrounds) > 0)
-													@foreach($setting->themesetting->first()->backgrounds as $background)
-														<option value="{{ $background->id }}" {{ !empty($setting->background_id) && $setting->background_id == $background->id ? 'selected' : '' }}>{{ $background->name }}</option>
-													@endforeach
-												@endif
-											</select>
-										</div>
-										<div class="form-group">
-											<label for="color">Background Color</label>
-											<select name="color" id="color" class="form-control">
-												@if(count($setting->themesetting->first()->colors) > 0)
-													@foreach($setting->themesetting->first()->colors as $color)
-														<option value="{{ $color->id }}" {{ !empty($setting->color_id) && $setting->color_id == $color->id ? 'selected' : '' }}>{{ $color->name }}</option>
-													@endforeach
-												@endif
-											</select>
-										</div>
-									@endslot
-								@endcomponent
-							</div>
-							<div class="col-sm-4">
-								<div class="row">
-									<div class="col-sm-12">
-										@component('admin.widgets.panel')
-											@slot('panelTitle1', 'Main Background Image')
-											@slot('panelBody')
-												<div class="row">
-													<div class="col-sm-12">
-														<div class="thumbnail">
-															<a href="javascript:" data-toggle="modal" data-target="#bgImage1Modal" class="bgImage1Btn">
-																<img src="{{ $bgImage1Mark ? asset($bgImage1->thumbnail->location) : asset('frontend/medicio/img/bg/bg1.jpg') }}" title="{{ $bgImage1Mark ? $bgImage1->name : 'background 1' }}" class="img-responsive">
-																<input type="hidden" name="bgImage1" id="bgImage1" value="{{ $bgImage1Mark ? $bgImage1->id : '' }}">
-															</a>
-														</div>
-													</div>
-												</div>
-											@endslot
-										@endcomponent
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-12">
-										@component('admin.widgets.panel')
-											@slot('panelTitle1', 'Second Background Image')
-											@slot('panelBody')
-												<div class="row">
-													<div class="col-sm-12">
-														<div class="thumbnail">
-															<a href="javascript:" data-toggle="modal" data-target="#bgImage2Modal" class="bgImage2Btn">
-																<img src="{{ $bgImage2Mark ? asset($bgImage2->thumbnail->location) : asset('frontend/medicio/img/bg/bg2.jpg') }}" title="{{ $bgImage2Mark ? $bgImage2->name : 'background 2' }}" class="img-responsive">
-																<input type="hidden" name="bgImage2" id="bgImage2" value="{{ $bgImage2Mark ? $bgImage2->id : '' }}">
-															</a>
-														</div>
-													</div>
-												</div>
-											@endslot
-										@endcomponent
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 					<div class="tab-pane fade" id="mainpagecontroller">
 						<div class="row">
 							<div class="col-sm-12">
@@ -388,90 +342,6 @@
 					<div class="tab-pane fade" id="uploadIconTab">
 						
 						<form action="{{ route('image.store') }}" class="dropzone" id="addNewIconDz" data-url="{{ route('setting.index', ['setting' => 1]) }}">
-							{{ csrf_field() }}
-							<div class="fallback">
-								<input type="file" name="image" multiple>
-							</div>
-							<div class="dz-message">
-								<h3 class="text-center">
-									Drop your images inside the box or click to add images 
-								</h3>
-							</div>
-						</form>
-					</div>
-				</div>
-			@endslot
-		@endcomponent
-      </div>
-    </div>
-  </div>
-</div>
-{{-- modal for background image 1 --}}
-<div class="modal fade-in full-modal" id="bgImage1Modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Add Background Image</h4>
-      </div>
-      <div class="modal-body">
-			@component('admin.widgets.panel')
-			@slot('class', 'default')
-			@slot('panelTitle1', 'Choose Image')
-			@slot('panelBody')
-				<ul class="nav nav-tabs" style="margin-bottom: 20px;">
-					<li class="active" id="bgImage1List"><a href="#bgImage1Tab" data-toggle="tab">Background Image</a></li>
-					<li class="" id="uploadBgImage1List"><a href="#uploadBgImage1Tab" data-toggle="tab">Upload Image</a></li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane fade active in" id="bgImage1Tab">
-						@include('admin.setting.partials._bgImage1')
-					</div>
-					<div class="tab-pane fade" id="uploadBgImage1Tab">
-						<form action="{{ route('image.store') }}" class="dropzone" id="addNewBgImage1Dz" data-url="{{ route('setting.index', ['setting' => 1]) }}">
-							{{ csrf_field() }}
-							<div class="fallback">
-								<input type="file" name="image" multiple>
-							</div>
-							<div class="dz-message">
-								<h3 class="text-center">
-									Drop your images inside the box or click to add images 
-								</h3>
-							</div>
-						</form>
-					</div>
-				</div>
-			@endslot
-		@endcomponent
-      </div>
-    </div>
-  </div>
-</div>
-
-{{-- modal for background image 2 --}}
-<div class="modal fade-in full-modal" id="bgImage2Modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Add Background Image</h4>
-      </div>
-      <div class="modal-body">
-			@component('admin.widgets.panel')
-			@slot('class', 'default')
-			@slot('panelTitle1', 'Choose Image')
-			@slot('panelBody')
-				<ul class="nav nav-tabs" style="margin-bottom: 20px;">
-					<li class="active" id="bgImage2List"><a href="#bgImage2Tab" data-toggle="tab">Background Image</a></li>
-					<li class="" id="uploadBgImage2List"><a href="#uploadBgImage2Tab" data-toggle="tab">Upload Image</a></li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane fade active in" id="bgImage2Tab">
-						@include('admin.setting.partials._bgImage2')
-					</div>
-					<div class="tab-pane fade" id="uploadBgImage2Tab">
-						
-						<form action="{{ route('image.store') }}" class="dropzone" id="addNewBgImage2Dz" data-url="{{ route('setting.index', ['setting' => 1]) }}">
 							{{ csrf_field() }}
 							<div class="fallback">
 								<input type="file" name="image" multiple>

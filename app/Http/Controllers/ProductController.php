@@ -78,16 +78,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->is_sale == '1') {
-            $this->validate($request, [
-                'sale_price' => ['required','integer', 'between:0,9999999999999999999999999,99'],
-            ]);
-        }
-
         $this->validate($request, [
             'name' => ['required', 'min:2'],
             'slug' => ['required', 'alpha_dash' ,'unique:products,slug'],
-            'price' => ['required','integer', 'between:0,9999999999999999999999999,99'],
+            'company' => 'nullable|string',
             'description' => ['required'],
             'category' => ['required', 'integer'],
         ]);
@@ -140,12 +134,17 @@ class ProductController extends Controller
             }
         }
 
-        if(!empty($request->featuredImage)) {
+        if($request->featuredImage != null) {
             $featuredImage = Image::find($request->featuredImage);
             $product->images()->attach($featuredImage, ['option' => 1, 'info' => 'featured image']);
         }
+        else
+        {
+            $featuredImage = Image::find(1);
+            $product->images()->attach($featuredImage, ['option' => 1, 'info' => 'featured image']);
+        }
 
-        if(count($request->galleryimage) > 0) {
+        if(!empty($request->galleryimage)) {
             foreach($request->galleryimage as $item) {
                 $gallery = Image::find($item);
                 $product->images()->attach($gallery, ['option' => 2, 'info' => 'gallery image']);
@@ -252,16 +251,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        if($request->is_sale == '1') {
-            $this->validate($request, [
-                'sale_price' => ['required','integer','between:0,9999999999999999999999999,99'],
-            ]);
-        }
-
         $this->validate($request, [
             'name' => ['required', 'min:2'],
             'slug' => ['required', 'alpha_dash', Rule::unique('products')->ignore($product->id)],
-            'price' => ['required','integer','between:0,9999999999999999999999999,99'],
+            'company' => 'nullable|string',
             'description' => ['required'],
             'category' => ['required', 'integer'],
         ]);
@@ -299,29 +292,14 @@ class ProductController extends Controller
         //#####save to database#####//
         $product->name = $request->name;
         $product->slug = $request->slug;
-
-        //if there is changing in the price save the old price
-        if($product->price != $request->price) {
-            $product->old_price = $product->price;
-            $product->price = $request->price;
-        }
-        else{
-            $product->price = $request->price;
-        }
-
+        $product->company =  $request->company;
         $product->description = $request->description;
         $product->summary = $summary;
-        $product->is_sale = $request->is_sale;
-        $product_category_id = $request->category;
-        if($request->is_sale == '1') {
-            $product->sale_price = $request->sale_price;
-            $product->start_sale = $request->startdate;
-            $product->end_sale = $request->enddate;
-        }
+        $product->product_category_id = $request->category;
         $product->save();
 
         //detach all the images
-        if(count($product->images) > 0) {
+        if(!empty($product->images)) {
             $product->images()->detach();
         }
 
@@ -341,12 +319,17 @@ class ProductController extends Controller
             }
         }
 
-        if(!empty($request->featuredImage)) {
+       if($request->featuredImage != null) {
             $featuredImage = Image::find($request->featuredImage);
             $product->images()->attach($featuredImage, ['option' => 1, 'info' => 'featured image']);
         }
+        else
+        {
+            $featuredImage = Image::find(1);
+            $product->images()->attach($featuredImage, ['option' => 1, 'info' => 'featured image']);
+        }
 
-        if(count($request->galleryimage) > 0) {
+        if(!empty($request->galleryimage)) {
             foreach($request->galleryimage as $item) {
                 $gallery = Image::find($item);
                 $product->images()->attach($gallery, ['option' => 2, 'info' => 'gallery image']);

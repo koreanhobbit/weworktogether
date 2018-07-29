@@ -32,9 +32,9 @@
 										<thead>
 											<tr>
 												<th class="text-center col-sm-3">Name</th>
-												<th class="text-center col">Form</th>
+												
 												<th class="text-center col-sm-9">Description</th>
-												<th class="text-center col">Add Form</th>
+												
 												<th class="text-center col">Edit</th>
 												<th class="text-center col">Delete</th>
 											</tr>
@@ -43,15 +43,9 @@
 											@foreach($services as $service)
 												<tr>
 													<td class="text-center">{{ $service->name }}</td>
-													<td class="text-center">Yes</td>
+													
 													<td class="text-center">{{ !empty($service->description) ? strip_tags($service->description) : 'No description' }}</td>
-													<td class="text-center">
-														<a href="{{ route('form.index') }}" class="btn btn-sm btn-primary">
-															<span>
-																<i class="fa fa-plus"></i>
-															</span>
-														</a>
-													</td>
+													
 													<td class="text-center">
 														<a href="{{ route('service.edit', ['service' => $service->id]) }}" class="btn btn-sm btn-info">
 															<span>

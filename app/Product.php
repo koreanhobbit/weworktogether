@@ -38,13 +38,9 @@ class Product extends Model
         return static::create([
             'name' => trim($request->name),
             'slug' => $request->slug,
-            'price' => $request->price,
             'summary' => $summary,
+            'company' => $request->company,
             'description' => $request->description,
-            'is_sale' => $request->is_sale,
-            'sale_price' => $request->sale_price,
-            'start_sale' => $request->startdate,
-            'end_sale' => $request->enddate,
             'product_category_id' => $request->category,
         ]);
     }

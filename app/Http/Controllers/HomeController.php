@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        //take all the contact message that exist
+        $messages = \App\ContactMessage::orderBy('id', 'desc')->get();
+
+        return view('admin.index', compact('messages'));
     }
 }

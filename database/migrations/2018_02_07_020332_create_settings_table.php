@@ -17,15 +17,16 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('tagline');
-            $table->text('address');
-            $table->string('phone');
-            $table->string('email');
-            $table->text('about');
-            $table->text('privacy_policy');
-            $table->unsignedInteger('currency_id');
+            $table->string('branch1')->nullable();
+            $table->string('branch2')->nullable();
+            $table->text('address1')->nullable();
+            $table->text('address2')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email1')->nullable();
+            $table->string('email2')->nullable();
+            $table->text('about')->nullable();
+            $table->text('privacy_policy')->nullable();
             $table->unsignedInteger('themesetting_id')->default(1);
-            $table->unsignedInteger('background_id')->nullable();
-            $table->unsignedInteger('color_id')->nullable();
             $table->timestamps();
         });
     }

@@ -55,11 +55,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Messenger', 'user_id');
     }
 
-    public function testimonies()
-    {
-        return $this->hasMany('App\Testimony');
-    }
-
     public function verifyUser()
     {
         return $this->hasOne('App\VerifyUser');

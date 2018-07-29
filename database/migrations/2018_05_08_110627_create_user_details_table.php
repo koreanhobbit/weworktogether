@@ -15,13 +15,17 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('phone');
-            $table->string('telegram')->nullable();
-            $table->date('birthday');
-            $table->string('birthday_string');
-            $table->text('address')->nullable();
+            $table->string('title')->nullable();
+            $table->string('location')->nullable();
+            $table->string('education')->nullable();
+            $table->text('description')->nullable();
+            $table->text('experience')->nullable();
+            $table->string('phone')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('birthday_string')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->boolean('display')->default(0);
             $table->timestamps();
         });
     }

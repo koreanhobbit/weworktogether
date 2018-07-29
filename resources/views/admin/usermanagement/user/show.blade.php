@@ -7,9 +7,13 @@
 		<div class="row">
 			<div class="col-sm-3">
 				@component('admin.widgets.panel')
+				@slot('class', 'info')
+				@slot('panelTitle', 'Profile Image')
 				@slot('panelBody')
-					<div class="img-thumbnail">
-						<img src="" alt="" class="img-responsive">
+					<div class="text-center">
+						<div class="img-thumbnail">
+							<img src="{{ !empty($user->images()->wherePivot('option', 1)->first()->location) ? asset($user->images()->wherePivot('option', 1)->first()->location) : asset('images/noimg_thumbnail.png') }}" alt="" class="img-responsive">
+						</div>
 					</div>
 				@endslot
 			@endcomponent

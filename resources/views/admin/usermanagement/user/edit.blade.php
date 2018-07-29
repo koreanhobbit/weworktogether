@@ -40,20 +40,6 @@
 								@endif
 							</div>
 
-							<div class="form-group {{ $errors->has('current_password') ? 'has-error' : '' }}">
-								<label for="current_password">
-									Current Password
-								</label>
-								<input type="password" id="current_password" name="current_password" class="form-control" placeholder="Input user current password" required>
-								@if($errors->has('current_password'))
-									<span class="help-block">
-										<strong>
-											{{ $errors->first('current_password') }}
-										</strong>
-									</span>
-								@endif
-							</div>
-
 							<div class="change-password">
 					        	<label>
 					        		<input type="checkbox"> Change Password
@@ -113,6 +99,31 @@
 										<span class="help-block">
 											<strong>
 												{{ $errors->first('role') }}
+											</strong>
+										</span>
+									@endif
+								</div>
+							@endslot
+						@endcomponent
+					</div>
+					<div class="row">
+						@component('admin.widgets.panel')
+							@slot('panelTitle', 'Display Status')
+							@slot('panelBody')
+								<div class="form-group {{ $errors->has('display') ? 'has-error' : ''}}">
+									<select class="form-control" name="display" id="display">
+										<option value="">Choose Display Status</option>
+										<option value="0" {{ $user->detail->display == 0 ? 'selected' : '' }}>
+											Not Showing
+										</option>
+										<option value="1" {{ $user->detail->display == 1 ? 'selected' : '' }}>
+											Showing
+										</option>
+									</select>
+									@if($errors->has('display'))
+										<span class="help-block">
+											<strong>
+												{{ $errors->first('display') }}
 											</strong>
 										</span>
 									@endif

@@ -11,6 +11,13 @@ class MessengerTypeSeeder extends Seeder
      */
     public function run()
     {
+         DB::table('messenger_types')->insert([
+            'name' => 'Telegram',
+            'slug' => 'telegram',
+            'created_at' => new \DateTime(),
+            'updated_at' => new \DateTime(),
+        ]);
+
         DB::table('messenger_types')->insert([
         	'name' => 'Kakao Talk ID',
         	'slug' => 'kakaotalkid',
@@ -28,13 +35,6 @@ class MessengerTypeSeeder extends Seeder
         DB::table('messenger_types')->insert([
         	'name' => 'We Chat ID',
         	'slug' => 'wechatid',
-        	'created_at' => new \DateTime(),
-        	'updated_at' => new \DateTime(),
-        ]);
-
-        DB::table('messenger_types')->insert([
-        	'name' => 'Telegram',
-        	'slug' => 'telegram',
         	'created_at' => new \DateTime(),
         	'updated_at' => new \DateTime(),
         ]);

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Setting;
-use App\Currency;
 use App\Image;
 use App\Websosmed;
 use Illuminate\Http\Request;
@@ -27,16 +26,6 @@ class SettingController extends Controller
         if ($request->ajax() && $request->title == 'iconImagePage') {
             $iconImages = Image::where('id', '<>', 1)->orderBy('id', 'desc')->paginate(12, ['*'], 'iconImagePage');
             return view('admin.setting.partials._icon', compact('iconImages'))->render();
-        }
-
-        if($request->ajax()  && $request->title == 'bgImage1Page') {
-            $bgImages1 = Image::where('id' , '<>', 1)->orderBy('id', 'desc')->paginate(12, ['*'], 'bgImage1Page');
-            return view('admin.setting.partials._bgImage1', compact('bgImages1'))->render(); 
-        }
-
-        if($request->ajax() && $request->title == 'bgImage2Page') {
-            $bgImages2 = Image::where('id', '<>', 1)->orderBy('id', 'desc')->paginate(12, ['*'], 'bgImage2Page');
-            return view('admin.setting.partials._bgImage2', compact('bgImages2'))->render();
         }
 
         //mark if logo exist or not in the product
@@ -67,45 +56,12 @@ class SettingController extends Controller
             $icon = null;
         }
 
-        //mark if bg image 1 exist or not in the product
-        $bgImage1Mark = false;
-        if($setting->images()->wherePivot('option', 6)->first()) {
-            $bgImage1Mark = true;
-        }
-
-        // if there is bg image 1 send the properties
-        if($bgImage1Mark) {
-             $bgImage1 = $setting->themesetting->bgImage1();              
-        }
-        else {
-            $bgImage1 = null;
-        }
-
-        //mark if bg image 2 exist or not in the product
-        $bgImage2Mark = false;
-        if($setting->images()->wherePivot('option', 7)->first()) {
-            $bgImage2Mark = true;
-        }
-
-        // if there is bg image 2 send the properties
-        if($bgImage2Mark) {
-             $bgImage2 = $setting->themesetting->bgImage2();              
-        }
-        else {
-            $bgImage2 = null;
-        }
-
         $iconImages = Image::where('id', '<>', 1)->orderBy('id', 'desc')->paginate(12, ['*'], 'iconImagePage');
 
         $logoImages = Image::where('id', '<>', 1)->orderBy('id', 'desc')->paginate(12, ['*'], 'logoImagePage');
 
-        $bgImages2 = Image::where('id', '<>', 1)->orderBy('id', 'desc')->paginate(12, ['*'], 'bgImage1Page');
-
-        $bgImages1 = Image::where('id', '<>', 1)->orderBy('id', 'desc')->paginate(12, ['*'], 'bgImage2Page');
-
-        $currencies = Currency::orderBy('name', 'asc')->get();
-
-        return view('admin.setting.index', compact('setting', 'currencies', 'logoMark', 'logo', 'iconMark', 'icon' ,'logoImages', 'iconImages', 'bgImage1Mark', 'bgImage1', 'bgImages1', 'bgImage2Mark', 'bgImage2', 'bgImages2'));
+    
+        return view('admin.setting.index', compact('setting', 'logoMark', 'logo', 'iconMark', 'icon' ,'logoImages', 'iconImages'));
     }
 
     /**
@@ -163,24 +119,24 @@ class SettingController extends Controller
         $this->validate($request, [
             'name' => ['required', 'min:2'],
             'tagline' => ['required', 'min:2'],
-            'currency' => ['required'],
-            'about' => ['required'],
-            'privacypolicy' => ['required'],
-            'address' => ['required'],
-            'email' => ['required', 'email'],
+            'about' => 'required|string',
+            'branch1' => 'required|string',
+            'branch2' => 'required|string',
+            'address1' => 'required|string',
+            'address2' => 'required|string',
+            'email1' => ['required', 'email'],
+            'email2' => ['required', 'email'],
             'phone' => ['required', 'string'],
-            'background' => ['required'],
-            'color' => ['required'],
         ]);
 
         $setting->name = trim($request->name);
         $setting->tagline = trim($request->tagline);
-        $setting->currency_id = $request->currency;
-        $setting->background_id = $request->background;
-        $setting->color_id = $request->color;
-        $setting->address = $request->address;
-        $setting->privacy_policy = $request->privacypolicy;
-        $setting->email = $request->email;
+        $setting->address1 = $request->address1;
+        $setting->address2 = $request->address2;
+        $setting->branch1 = $request->branch1;
+        $setting->branch2 = $request->branch2;
+        $setting->email1 = $request->email1;
+        $setting->email2 = $request->email2;
         $setting->phone = $request->phone;
         $setting->about = $request->about;
         $setting->save();
@@ -209,19 +165,6 @@ class SettingController extends Controller
 
         //detach all image in theme
         $setting->themesetting->images()->detach();
-
-        //save the image in theme
-        if(!empty($request->bgImage1)) {
-            //find the image
-            $bgImage1 = Image::find($request->bgImage1);
-            $setting->themesetting->images()->attach($bgImage1, ['option' => 6, 'info' => 'theme image 1']);
-        }
-
-        if(!empty($request->bgImage2)) {
-            //find the image
-            $bgImage2 = Image::find($request->bgImage2);
-            $setting->themesetting->images()->attach($bgImage2, ['option' => 7, 'info' => 'theme image 2']);
-        }
 
         //save the mainpage controller
         foreach($setting->themesetting->menus as $menu) {
