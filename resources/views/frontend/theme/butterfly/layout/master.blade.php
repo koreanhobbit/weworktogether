@@ -3,7 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1">
-	<title>test</title>
+	<title>We Work Together</title>
+	<meta name="description" content="The best Distributor and Forwarder Company! wework, wework together, weworktu.com, www.weworktu.com">
+    <meta name="keywords" content="The best Distributor and Forwarder Company! wework, wework together, weworktu.com, www.weworktu.com">
+    <meta name="author" content="www.weworktu.com">
 	<link rel="icon" href="{{ asset('images/icon.png') }}" type="image/png">
 	<link href="{{ asset('frontend/butterfly/css/app.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('frontend/butterfly/css/style.css') }}" rel="stylesheet" type="text/css">
