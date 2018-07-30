@@ -63,7 +63,7 @@
 						<form action="{{ route('contact.store') }}" method="post" class="contactForm">
 							{{ csrf_field() }}
 							<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }} ">
-								<input type="text" name="name" class="form-control input-text" id="name" placeholder="Your Name" />
+								<input type="text" name="name" class="form-control input-text" id="name" placeholder="Your Name" value="{{ old('name') }}" />
 							</div>
 							@if($errors->has('name'))
 								<div class="help-block">
@@ -75,7 +75,7 @@
 								</div>
 							@endif
 							<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-								<input type="email" class="form-control input-text" name="email" id="email" placeholder="Your Email" />
+								<input type="email" class="form-control input-text" name="email" id="email" placeholder="Your Email" value="{{ old('email') }}" />
 							</div>
 							@if($errors->has('email'))
 								<div class="help-block">
@@ -87,7 +87,7 @@
 								</div>
 							@endif
 							<div class="form-group {{ $errors->has('subject') ? 'has-error' : '' }} ">
-								<input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Subject" />
+								<input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Subject" value="{{ old('subject') }}" />
 							</div>
 							@if($errors->has('subject'))
 								<div class="help-block">
@@ -99,7 +99,7 @@
 								</div>
 							@endif
 							<div class="form-group {{ $errors->has('message') ? 'has-error' : '' }} ">
-								<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+								<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message">{{ old('message') }}</textarea>
 							</div>
 							@if($errors->has('message'))
 								<div class="help-block">
