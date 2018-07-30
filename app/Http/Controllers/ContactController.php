@@ -16,7 +16,7 @@ class ContactController extends Controller
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
-            // 'g-recaptcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
         $contact = ContactMessage::addNewContact($request);
