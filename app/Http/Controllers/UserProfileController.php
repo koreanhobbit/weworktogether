@@ -82,6 +82,10 @@ class UserProfileController extends Controller
         {
             $birthday = date("Y-m-d", strtotime($request->birthday));
         }
+        else
+        {
+            $birthday = null;
+        }
 
         $detail->birthday = $birthday;
         $detail->birthday_string = $request->birthday;
