@@ -49,6 +49,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Image' => $baseDir . '/app/Image.php',
+    'App\\Mail\\ContactNotification' => $baseDir . '/app/Mail/ContactNotification.php',
     'App\\Mail\\NewUserAuto' => $baseDir . '/app/Mail/NewUserAuto.php',
     'App\\Mail\\ResponseMessage' => $baseDir . '/app/Mail/ResponseMessage.php',
     'App\\Mail\\VerifyReg' => $baseDir . '/app/Mail/VerifyReg.php',

@@ -19,7 +19,9 @@ class ResponseMessage extends Controller
         //update the detail
         $contact->messagedetail->status = 1;
         $contact->messagedetail->response = $request->message;
-        $detail = $contact->messagedetail->save();
+        $contact->messagedetail->save();
+
+        $detail = \App\MessageDetail::find($contact->messagedetail->id);
 
         //send the email 
         \Mail::to($request->recipient)->queue(new \App\Mail\ResponseMessage($detail));

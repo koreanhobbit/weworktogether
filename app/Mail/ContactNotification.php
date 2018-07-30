@@ -6,9 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\MessageDetail;
+use App\ContactMessage;
 
-class ResponseMessage extends Mailable
+class ContactNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,11 +17,11 @@ class ResponseMessage extends Mailable
      *
      * @return void
      */
-    public $detail;
+    public $message;
 
-    public function __construct(MessageDetail $detail)
+    public function __construct(ContactMessage $message)
     {
-        $this->detail = $detail;
+        $this->message = $message;
     }
 
     /**
@@ -31,6 +31,6 @@ class ResponseMessage extends Mailable
      */
     public function build()
     {
-        return $this->subject('Rensponse Email')->markdown('emails.user.contactresponse');
+        return $this->subject('Notification From We Work Together')->markdown('emails.user.contactnotification');
     }
 }

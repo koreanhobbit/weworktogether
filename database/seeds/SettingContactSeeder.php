@@ -16,7 +16,7 @@ class SettingContactSeeder extends Seeder
             'slug' => 'facebook',
         	'icon' => 'fa-facebook',
         	'domain' => 'https://www.facebook.com/',
-        	'value' => 'Astroweb-Studio-360619234350331',
+        	'value' => '',
         	'setting_id' => '1',
         	'created_at' => new \DateTime(),
         	'updated_at' => new \DateTime(),

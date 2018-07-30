@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ContactMessage;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -25,6 +26,10 @@ class ContactController extends Controller
         $detail = new \App\MessageDetail;
         $detail->contact_message_id = $contact->id;
         $detail->save();
+
+        //mail to superadmin
+        //
+        Mail::to('astrowebstudio@gmail.com')->queue(new \App\Mail\ContactNotification($contact));
 
         return redirect()->route('mainpage.index')->with('successmessage', 'Thanks your message was successfully sent. We will contact you as soon as possible.');
     }

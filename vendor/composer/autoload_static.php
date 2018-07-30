@@ -438,6 +438,7 @@ class ComposerStaticInitcee74c82a659abfedc90531f616c305d
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Image' => __DIR__ . '/../..' . '/app/Image.php',
+        'App\\Mail\\ContactNotification' => __DIR__ . '/../..' . '/app/Mail/ContactNotification.php',
         'App\\Mail\\NewUserAuto' => __DIR__ . '/../..' . '/app/Mail/NewUserAuto.php',
         'App\\Mail\\ResponseMessage' => __DIR__ . '/../..' . '/app/Mail/ResponseMessage.php',
         'App\\Mail\\VerifyReg' => __DIR__ . '/../..' . '/app/Mail/VerifyReg.php',
