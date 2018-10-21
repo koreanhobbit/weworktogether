@@ -1,7 +1,7 @@
 <header id="header_outer">
 	<div class="container">
 		<div class="header_section">
-			<div class="logo"><a href="javascript:void(0)"><img src="{{ asset('images/astrologo.png') }}" style="height:30px; width:150px;" alt=""></a></div>
+			<div class="logo"><a href="javascript:void(0)"><img src="{{ !empty($setting->logoImage()) ? asset($setting->logoImage()->location) : asset('images/astrologo.png') }}" style="height:30px; width:150px;" alt=""></a></div>
 			<nav class="nav" id="nav">
 				<ul class="toggle">
 					<li><a href="#top_content">Home</a></li>

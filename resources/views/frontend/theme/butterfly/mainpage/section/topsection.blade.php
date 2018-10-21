@@ -7,7 +7,7 @@
 						<div class="top_left_cont flipInY wow animated">
 							<h3>Professional &amp; Global!</h3>
 							<h2>{{ $setting->tagline }}</h2>
-							<p> {{ $setting->about }} </p>
+							<p> {{ strip_tags($setting->about) }} </p>
 							<a href="#service" class="learn_more2">Learn more</a> </div>
 					</div>
 					<div class="col-lg-7 col-sm-5"> </div>
